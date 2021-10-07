@@ -1,0 +1,12 @@
+C:\Git\StudentCourseManagement\StudentCourseManagement.Models\bin\Debug\net5.0\StudentCourseManagement.Models.deps.json
+C:\Git\StudentCourseManagement\StudentCourseManagement.Models\bin\Debug\net5.0\StudentCourseManagement.Models.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Models\bin\Debug\net5.0\ref\StudentCourseManagement.Models.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Models\bin\Debug\net5.0\StudentCourseManagement.Models.pdb
+C:\Git\StudentCourseManagement\StudentCourseManagement.Models\obj\Debug\net5.0\StudentCourseManagement.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\StudentCourseManagement\StudentCourseManagement.Models\obj\Debug\net5.0\StudentCourseManagement.Models.AssemblyInfoInputs.cache
+C:\Git\StudentCourseManagement\StudentCourseManagement.Models\obj\Debug\net5.0\StudentCourseManagement.Models.AssemblyInfo.cs
+C:\Git\StudentCourseManagement\StudentCourseManagement.Models\obj\Debug\net5.0\StudentCourseManagement.Models.csproj.CoreCompileInputs.cache
+C:\Git\StudentCourseManagement\StudentCourseManagement.Models\obj\Debug\net5.0\StudentCourseManagement.Models.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Models\obj\Debug\net5.0\ref\StudentCourseManagement.Models.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Models\obj\Debug\net5.0\StudentCourseManagement.Models.pdb
+C:\Git\StudentCourseManagement\StudentCourseManagement.Models\obj\Debug\net5.0\StudentCourseManagement.Models.csproj.AssemblyReference.cache

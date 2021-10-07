@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "StudentCourseManagement.Repositories/1.0.0": {
+        "dependencies": {
+          "StudentCourseManagement.Interfaces": "1.0.0"
+        },
+        "runtime": {
+          "StudentCourseManagement.Repositories.dll": {}
+        }
+      },
+      "StudentCourseManagement.Interfaces/1.0.0": {
+        "dependencies": {
+          "StudentCourseManagement.Models": "1.0.0"
+        },
+        "runtime": {
+          "StudentCourseManagement.Interfaces.dll": {}
+        }
+      },
+      "StudentCourseManagement.Models/1.0.0": {
+        "runtime": {
+          "StudentCourseManagement.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "StudentCourseManagement.Repositories/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StudentCourseManagement.Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StudentCourseManagement.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

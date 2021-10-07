@@ -1,0 +1,17 @@
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\bin\Debug\net5.0\StudentCourseManagement.Services.deps.json
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\bin\Debug\net5.0\StudentCourseManagement.Services.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\bin\Debug\net5.0\ref\StudentCourseManagement.Services.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\bin\Debug\net5.0\StudentCourseManagement.Services.pdb
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\bin\Debug\net5.0\StudentCourseManagement.Interfaces.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\bin\Debug\net5.0\StudentCourseManagement.Interfaces.pdb
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\obj\Debug\net5.0\StudentCourseManagement.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\obj\Debug\net5.0\StudentCourseManagement.Services.AssemblyInfoInputs.cache
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\obj\Debug\net5.0\StudentCourseManagement.Services.AssemblyInfo.cs
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\obj\Debug\net5.0\StudentCourseManagement.Services.csproj.CoreCompileInputs.cache
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\obj\Debug\net5.0\StudentCourseManagement.Services.csproj.CopyComplete
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\obj\Debug\net5.0\StudentCourseManagement.Services.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\obj\Debug\net5.0\ref\StudentCourseManagement.Services.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\obj\Debug\net5.0\StudentCourseManagement.Services.pdb
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\obj\Debug\net5.0\StudentCourseManagement.Services.csproj.AssemblyReference.cache
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\bin\Debug\net5.0\StudentCourseManagement.Models.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Services\bin\Debug\net5.0\StudentCourseManagement.Models.pdb

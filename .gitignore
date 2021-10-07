@@ -1,0 +1,6 @@
+*.dll
+*.cache
+*.pdb
+*.targets
+StudentCourseManagement.Interfaces/bin/
+StudentCourseManagement.Interfaces/obj/

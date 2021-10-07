@@ -1,0 +1,17 @@
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\bin\Debug\net5.0\StudentCourseManagement.Repositories.deps.json
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\bin\Debug\net5.0\StudentCourseManagement.Repositories.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\bin\Debug\net5.0\ref\StudentCourseManagement.Repositories.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\bin\Debug\net5.0\StudentCourseManagement.Repositories.pdb
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\bin\Debug\net5.0\StudentCourseManagement.Interfaces.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\bin\Debug\net5.0\StudentCourseManagement.Interfaces.pdb
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\obj\Debug\net5.0\StudentCourseManagement.Repositories.csproj.AssemblyReference.cache
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\obj\Debug\net5.0\StudentCourseManagement.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\obj\Debug\net5.0\StudentCourseManagement.Repositories.AssemblyInfoInputs.cache
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\obj\Debug\net5.0\StudentCourseManagement.Repositories.AssemblyInfo.cs
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\obj\Debug\net5.0\StudentCourseManagement.Repositories.csproj.CoreCompileInputs.cache
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\obj\Debug\net5.0\StudentCourseManagement.Repositories.csproj.CopyComplete
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\obj\Debug\net5.0\StudentCourseManagement.Repositories.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\obj\Debug\net5.0\ref\StudentCourseManagement.Repositories.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\obj\Debug\net5.0\StudentCourseManagement.Repositories.pdb
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\bin\Debug\net5.0\StudentCourseManagement.Models.dll
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\bin\Debug\net5.0\StudentCourseManagement.Models.pdb
