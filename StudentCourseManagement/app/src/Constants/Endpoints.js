@@ -1,19 +1,19 @@
 export const StudentsApis = {
-    GetStudents: "api/customers/register",
-    UpsertStudents: "api/customers/login"
+    GetStudents: "student",
+    UpsertStudents: "student/UpsertCourse"
 };
 
 export const CoursesApis = {
-    GetCourses: "api/customers/register",
+    GetCourses: "course",
     UpsertCourses: "api/customers/login"
 };
 
 export const SubscriptionsApis = {
-    GetSubscriptions: "api/customers/register",
+    GetSubscriptions: "subscription",
     UpsertSubscriptions: "api/customers/login"
 };
 
 export const ReportsApis = {
-    GetReportsList: "api/customers/register",
+    GetReportsList: "report",
     GetReport:""
 };

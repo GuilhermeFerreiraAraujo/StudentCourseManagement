@@ -3,6 +3,7 @@ using StudentCourseManagement.Interfaces.Services;
 using StudentCourseManagement.Models.Models.Entities;
 using StudentCourseManagement.Models.Models.Requests;
 using StudentCourseManagement.Models.Models.Responses;
+using System.Collections.Generic;
 
 namespace StudentCourseManagement.Services.Services
 {
@@ -12,6 +13,11 @@ namespace StudentCourseManagement.Services.Services
         public CourseService(CourseRepositoryInterface courseRepository)
         {
             _courseRepository = courseRepository;
+        }
+
+        public IEnumerable<Course> GetCourses(GetCoursesRequest request)
+        {
+            return _courseRepository.GetCourses(request);
         }
 
         public bool IsFormValid(UpsertCourseRequest request)

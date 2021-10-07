@@ -30,3 +30,6 @@ C:\Git\StudentCourseManagement\StudentCourseManagement\obj\Debug\net5.0\StudentC
 C:\Git\StudentCourseManagement\StudentCourseManagement\obj\Debug\net5.0\ref\StudentCourseManagement.dll
 C:\Git\StudentCourseManagement\StudentCourseManagement\obj\Debug\net5.0\StudentCourseManagement.pdb
 C:\Git\StudentCourseManagement\StudentCourseManagement\obj\Debug\net5.0\StudentCourseManagement.genruntimeconfig.cache
+C:\Git\StudentCourseManagement\StudentCourseManagement\bin\Debug\net5.0\app\package-lock.json
+C:\Git\StudentCourseManagement\StudentCourseManagement\bin\Debug\net5.0\app\package.json
+C:\Git\StudentCourseManagement\StudentCourseManagement\bin\Debug\net5.0\app\public\manifest.json

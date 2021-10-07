@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StudentCourseManagement.Interfaces.Services;
+using StudentCourseManagement.Models.Models.Entities;
 using StudentCourseManagement.Models.Models.Requests;
 using StudentCourseManagement.Models.Models.Responses;
 using System.Collections.Generic;
@@ -21,9 +22,9 @@ namespace StudentCourseManagement.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<object> Get()
+        public IEnumerable<Course> Get([FromQuery] GetCoursesRequest request)
         {
-            return null;
+            return _courseService.GetCourses(request);
         }
 
         [HttpPost]

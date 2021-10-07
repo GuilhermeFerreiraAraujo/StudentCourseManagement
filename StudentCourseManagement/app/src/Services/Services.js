@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const appUrl = 'https://localhost:44396/';
+const appUrl = 'https://localhost:44388/';
 
 export function Get(Endpoint) {
     const url = appUrl + Endpoint;

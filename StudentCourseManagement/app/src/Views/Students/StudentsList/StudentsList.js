@@ -13,6 +13,8 @@ class StudentsList extends React.Component {
   }
 
   componentDidMount() {
+
+    debugger;
     Services.Get(Endpoints.StudentsApis.GetStudents).then(response => {
       this.setState({
         data: response.data.Students
