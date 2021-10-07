@@ -2,6 +2,7 @@
 using StudentCourseManagement.Interfaces.Services;
 using StudentCourseManagement.Models.Models.Requests;
 using StudentCourseManagement.Models.Models.Responses;
+using System.Collections.Generic;
 
 namespace StudentCourseManagement.Services.Services
 {
@@ -13,9 +14,14 @@ namespace StudentCourseManagement.Services.Services
             _studentRepository = studentRepository;
         }
 
-        public UpsertStudentResponse UpserStudent(UpsertStudentRequest request)
+        public IEnumerable<GetStudentsRequest> GetStudents(GetStudentsRequest request)
         {
-            return null;
+            return _studentRepository.GetStudents(request);
+        }
+
+        public UpsertStudentResponse UpsertStudent(UpsertStudentRequest request)
+        {
+            return _studentRepository.UpsertStudent(request);
         }
     }
 }
