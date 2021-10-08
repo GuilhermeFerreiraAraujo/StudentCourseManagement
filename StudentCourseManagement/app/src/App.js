@@ -1,7 +1,7 @@
 import StudentsList from './Views/Students/StudentsList/StudentsList';
 import CoursesList from './Views/Courses/CoursesList/CoursesList';
 import SubscriptionsList from './Views/Subscriptions/SubscriptionsList/SubscriptionsList';
-import StudentsDetail from './Views/Students/StudentsList/StudentsList';
+import StudentsDetail from './Views/Students/StudentsDetail/StudentsDetail';
 import CoursesDetail from './Views/Courses/CoursesList/CoursesList';
 import SubscriptionsDetail from './Views/Subscriptions/SubscriptionsList/SubscriptionsList';
 import './App.scss';
@@ -17,29 +17,29 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <nav class="navbar navbar-expand-lg bg-light">
-          <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="main_nav">
-              <ul class="navbar-nav">
-                <li class="nav-item bg-light dropdown">
-                  <Link class="nav-link" to="/" data-bs-toggle="dropdown">Students</Link>
-                  <ul class="dropdown-menu">
-                    <li><Link class="dropdown-item" to="/student-detail">Add Student</Link></li>
-                    <li><Link class="dropdown-item" to="/">View Students</Link></li>
+        <nav className="navbar navbar-expand-lg bg-light">
+          <div className="container-fluid">
+            <div className="collapse navbar-collapse" id="main_nav">
+              <ul className="navbar-nav">
+                <li className="nav-item bg-light dropdown">
+                  <Link className="nav-link" to="/" data-bs-toggle="dropdown">Students</Link>
+                  <ul className="dropdown-menu">
+                    <li><Link className="dropdown-item" to="/student-detail">Add Student</Link></li>
+                    <li><Link className="dropdown-item" to="/">View Students</Link></li>
                   </ul>
                 </li>
-                <li class="nav-item dropdown">
-                  <Link class="nav-link" to="/courses-list" data-bs-toggle="dropdown">Courses</Link>
-                  <ul class="dropdown-menu">
-                    <li><Link class="dropdown-item" to="course-detail">Add Course</Link></li>
-                    <li><Link class="dropdown-item" to="courses-list">View Courses</Link></li>
+                <li className="nav-item dropdown">
+                  <Link className="nav-link" to="/courses-list" data-bs-toggle="dropdown">Courses</Link>
+                  <ul className="dropdown-menu">
+                    <li><Link className="dropdown-item" to="course-detail">Add Course</Link></li>
+                    <li><Link className="dropdown-item" to="courses-list">View Courses</Link></li>
                   </ul>
                 </li>
-                <li class="nav-item dropdown">
-                  <Link class="nav-link" to="/subscriptions-list" data-bs-toggle="dropdown">Subscriptions</Link>
-                  <ul class="dropdown-menu">
-                    <li><Link class="dropdown-item" to="/subscription-detail">Add Subscription</Link></li>
-                    <li><Link class="dropdown-item" to="/subscriptions-list">View Subscriptions</Link></li>
+                <li className="nav-item dropdown">
+                  <Link className="nav-link" to="/subscriptions-list" data-bs-toggle="dropdown">Subscriptions</Link>
+                  <ul className="dropdown-menu">
+                    <li><Link className="dropdown-item" to="/subscription-detail">Add Subscription</Link></li>
+                    <li><Link className="dropdown-item" to="/subscriptions-list">View Subscriptions</Link></li>
                   </ul>
                 </li>
               </ul>
