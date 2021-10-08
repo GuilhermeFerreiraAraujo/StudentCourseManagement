@@ -1,6 +1,6 @@
 export const StudentsApis = {
     GetStudents: "student",
-    UpsertStudents: "student/UpsertCourse"
+    UpsertStudents: "Student/UpsertStudent"
 };
 
 export const CoursesApis = {

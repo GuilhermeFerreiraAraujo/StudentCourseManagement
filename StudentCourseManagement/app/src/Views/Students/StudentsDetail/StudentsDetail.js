@@ -1,6 +1,10 @@
 import React from 'react';
 import Textbox from '../../../Components/Atoms/Textbox/Textbox';
 import Button from '../../../Components/Atoms/Button/Button';
+import * as Services from '../../../Services/Services';
+import * as Endpoints from '../../../Constants/Endpoints';
+import { Redirect } from "react-router-dom";
+
 import 'bootstrap/dist/css/bootstrap.css';
 import './StudentsDetail.scss';
 
@@ -8,15 +12,43 @@ class StudentsDetail extends React.Component {
   constructor() {
     super();
     this.state = {
-      id: 0,
-      firstName: "",
-      surname: "",
-      gender: "",
-      dateOfBirth: null,
-      address1: "",
-      address2: "",
-      address3: ""
+      id: 12,
+      firstName: "Guilherme",
+      surname: "Ferreira",
+      gender: "Male",
+      dateOfBirth: new Date(),
+      address1: "Rua 1",
+      address2: "Morada 2",
+      address3: "Street 3"
     };
+
+    this.deleteStudent = this.deleteStudent.bind(this);
+    this.saveStudent = this.saveStudent.bind(this);
+  }
+
+  deleteStudent() {
+    //Services.Post(Endpoints.StudentsApis.deleteStudent)
+  }
+
+  saveStudent() {
+    const data = {
+      "id": this.state.id,
+      "firstName": this.state.firstName,
+      "surname": this.state.surname,
+      "gender": this.state.gender,
+      "dateOfBirth": this.state.dateOfBirth,
+      "address1": this.state.address1,
+      "address2": this.state.address2,
+      "address3": this.state.address3
+    }
+
+    Services.Post(Endpoints.StudentsApis.UpsertStudents, data).then(response => {
+      alert("success");
+      <Redirect to="/" />
+    }).catch(ex => {
+      alert("Error");
+      console.log(ex);
+    })
   }
 
   render() {
@@ -51,9 +83,9 @@ class StudentsDetail extends React.Component {
         </div>
 
         <div className="row text-end">
-        <div className="col">
-            <Button type="danger" label="Delete"/>
-            <Button label="Save" />
+          <div className="col">
+            <Button type="danger" label="Delete" />
+            <Button label="Save" onClick={this.saveStudent} />
           </div>
         </div>
       </div>

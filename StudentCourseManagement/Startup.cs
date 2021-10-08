@@ -52,6 +52,10 @@ namespace StudentCourseManagement
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(option => option.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()); ;
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

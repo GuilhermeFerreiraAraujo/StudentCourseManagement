@@ -21,13 +21,15 @@ namespace StudentCourseManagement.Controllers
         }
 
         [HttpGet]
+        [Route("GetStudents")]
         public IActionResult GetStudents([FromQuery]GetStudentsRequest request)
         {
             return Ok(_studentService.GetStudents(request));
         }
 
         [HttpPost]
-        public IActionResult UpsertCourse([FromBody] UpsertStudentRequest request)
+        [Route("UpsertStudent")]
+        public IActionResult UpsertStudent([FromBody]UpsertStudentRequest request)
         {
             var response = new UpsertStudentResponse();
             response = _studentService.UpsertStudent(request);

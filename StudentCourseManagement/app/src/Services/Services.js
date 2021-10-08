@@ -13,14 +13,15 @@ export function Get(Endpoint) {
     return axios(options)
 }
 
-export function Post(Endpoint, data) {
+export function Post(Endpoint, obj) {
+
+
 
     const url = appUrl + Endpoint;
-
     const options = {
         method: 'POST',
         url,
-        data
+        data: obj
     };
 
     return axios(options);

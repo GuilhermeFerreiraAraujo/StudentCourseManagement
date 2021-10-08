@@ -1,10 +1,11 @@
-﻿using System;
+﻿using StudentCourseManagement.Models.Models.Entities;
+using System;
 
 namespace StudentCourseManagement.Models.Models.Requests
 {
     public class UpsertStudentRequest
     {
-        public int IdCourse { get; set; }
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public string Gender { get; set; }
