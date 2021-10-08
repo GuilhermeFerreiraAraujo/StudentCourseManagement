@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StudentCourseManagement.Interfaces.Repositories;
 using StudentCourseManagement.Interfaces.Services;
+using StudentCourseManagement.Repositories.Models;
 using StudentCourseManagement.Repositories.Repositories;
 using StudentCourseManagement.Services.Services;
 
@@ -36,6 +37,7 @@ namespace StudentCourseManagement
 
         public void ConfigureDependencyInjection(IServiceCollection services)
         {
+            services.AddDbContext<StudentCourseManagementContext>();
             services.AddTransient<IStudentRepository, StudentRepository>();
             services.AddTransient<CourseRepositoryInterface, CourseRepository>();
             services.AddTransient<CourseServiceInterface, CourseService>();

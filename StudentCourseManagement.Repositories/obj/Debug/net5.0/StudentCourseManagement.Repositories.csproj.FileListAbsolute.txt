@@ -15,3 +15,6 @@ C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\obj\Debug\ne
 C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\obj\Debug\net5.0\StudentCourseManagement.Repositories.pdb
 C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\bin\Debug\net5.0\StudentCourseManagement.Models.dll
 C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\bin\Debug\net5.0\StudentCourseManagement.Models.pdb
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\bin\Debug\net5.0\StudentCourseManagement.Repositories.runtimeconfig.json
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\bin\Debug\net5.0\StudentCourseManagement.Repositories.runtimeconfig.dev.json
+C:\Git\StudentCourseManagement\StudentCourseManagement.Repositories\obj\Debug\net5.0\StudentCourseManagement.Repositories.genruntimeconfig.cache

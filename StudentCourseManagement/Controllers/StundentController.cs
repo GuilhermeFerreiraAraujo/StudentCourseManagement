@@ -21,9 +21,9 @@ namespace StudentCourseManagement.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<GetStudentsRequest> GetStudents([FromQuery]GetStudentsRequest request)
+        public IActionResult GetStudents([FromQuery]GetStudentsRequest request)
         {
-            return _studentService.GetStudents(request);
+            return Ok(_studentService.GetStudents(request));
         }
 
         [HttpPost]
