@@ -77,7 +77,7 @@ export default function Table({ columns, data, onDoubleClick }) {
         return (
             <div className="Table">
                 <table {...getTableProps()}>
-                    <thead>
+                    <thead className="table-header">
                         {
                             headerGroups.map(headerGroup => (
                                 <tr {...headerGroup.getHeaderGroupProps()}>

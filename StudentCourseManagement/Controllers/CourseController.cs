@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StudentCourseManagement.Interfaces.Services;
-using StudentCourseManagement.Models.Models.Entities;
 using StudentCourseManagement.Models.Models.Requests;
-using StudentCourseManagement.Models.Models.Responses;
-using System.Collections.Generic;
 
 namespace StudentCourseManagement.Controllers
 {
@@ -23,18 +20,46 @@ namespace StudentCourseManagement.Controllers
 
         [HttpGet]
         [Route("GetCourses")]
-        public IEnumerable<Course> Get([FromQuery] GetCoursesRequest request)
+        public IActionResult Get([FromQuery] GetCoursesRequest request)
         {
-            return _courseService.GetCourses(request);
+            try
+            {
+                return Ok(_courseService.GetCourses(request));
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("There was a problem with your request!");
+            }
         }
 
         [HttpPost]
         [Route("UpsertCourse")]
         public IActionResult UpsertCourse([FromBody]UpsertCourseRequest request)
         {
-            var response = new UpsertCourseResponse();
-            response = _courseService.UpsertCourse(request);
-            return Ok(response);
+            try
+            {
+                var response = _courseService.UpsertCourse(request);
+                return Ok(response);
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("There was a problem with your request!");
+            }
+        }
+
+        [HttpPost]
+        [Route("DeleteCourse")]
+        public IActionResult DeleteCourse([FromBody] DeleteCourseRequest request)
+        {
+            try
+            {
+                var response = _courseService.DeleteCourse(request);
+                return Ok(response);
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("There was a problem with your request!");
+            }
         }
     }
 }

@@ -36,10 +36,8 @@ class CoursesDetail extends React.Component {
         "id": id
       };
       Services.Get(Endpoints.CoursesApis.GetCourses, params).then(response => {
-        debugger;
-        this.setState({
-          data: response.data
-        })
+        const course = response.data[0];
+        this.setState(course)
       }).catch(ex => {
         console.log(ex);
       });
@@ -105,7 +103,7 @@ class CoursesDetail extends React.Component {
 
         <div className="row text-end">
           <div className="col">
-            <Button type="danger" label="Delete" />
+            <Button type="danger" disabled={this.state.id <= 0} label="Delete" />
             <Button label="Save" onClick={this.save} />
           </div>
         </div>

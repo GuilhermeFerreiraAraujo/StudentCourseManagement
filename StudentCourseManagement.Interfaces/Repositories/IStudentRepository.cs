@@ -9,5 +9,6 @@ namespace StudentCourseManagement.Interfaces.Repositories
     {
         List<Student> GetStudents(GetStudentsRequest request);
         UpsertStudentResponse UpsertStudent(UpsertStudentRequest request);
+        DeleteStudentResponse DeleteStudent(DeleteStudentRequest request);
     }
 }

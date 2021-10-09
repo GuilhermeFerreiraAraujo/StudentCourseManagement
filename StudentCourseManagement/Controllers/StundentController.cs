@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using StudentCourseManagement.Interfaces.Services;
 using StudentCourseManagement.Models.Models.Requests;
-using StudentCourseManagement.Models.Models.Responses;
+using System;
 
 namespace StudentCourseManagement.Controllers
 {
@@ -23,16 +23,44 @@ namespace StudentCourseManagement.Controllers
         [Route("GetStudents")]
         public IActionResult GetStudents([FromQuery]GetStudentsRequest request)
         {
-            return Ok(_studentService.GetStudents(request));
+            try
+            {
+                return Ok(_studentService.GetStudents(request));
+            }
+            catch (Exception)
+            {
+                return BadRequest("There was a problem with your request!");
+            }
         }
 
         [HttpPost]
         [Route("UpsertStudent")]
         public IActionResult UpsertStudent([FromBody]UpsertStudentRequest request)
         {
-            var response = new UpsertStudentResponse();
-            response = _studentService.UpsertStudent(request);
-            return Ok(response);
+            try
+            {
+                var response = _studentService.UpsertStudent(request);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("There was a problem with your request!");
+            }
+        }
+
+        [HttpPost]
+        [Route("DeleteStudent")]
+        public IActionResult DeleteCourse([FromBody] DeleteStudentRequest request)
+        {
+            try
+            {
+                var response = _studentService.DeleteStudent(request);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("There was a problem with your request!");
+            }
         }
     }
 }

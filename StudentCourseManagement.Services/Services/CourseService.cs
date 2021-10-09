@@ -15,6 +15,11 @@ namespace StudentCourseManagement.Services.Services
             _courseRepository = courseRepository;
         }
 
+        public DeleteCourseResponse DeleteCourse(DeleteCourseRequest request)
+        {
+            return _courseRepository.DeleteCourse(request); 
+        }
+
         public IEnumerable<Course> GetCourses(GetCoursesRequest request)
         {
             return _courseRepository.GetCourses(request);

@@ -1,8 +1,8 @@
 ﻿using StudentCourseManagement.Interfaces.Repositories;
 using StudentCourseManagement.Models.Models.Entities;
 using StudentCourseManagement.Models.Models.Requests;
+using StudentCourseManagement.Models.Models.Responses;
 using StudentCourseManagement.Repositories.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -80,6 +80,15 @@ namespace StudentCourseManagement.Repositories.Repositories
             _context.Add(course);
             _context.SaveChanges();
             return course;
+        }
+
+        public DeleteCourseResponse DeleteCourse(DeleteCourseRequest request)
+        {
+            var response = new DeleteCourseResponse();
+            var course = _context.Courses.FirstOrDefault(x => x.Id == request.Id);
+            _context.Courses.Remove(course);
+            _context.SaveChanges();
+            return response;
         }
     }
 }

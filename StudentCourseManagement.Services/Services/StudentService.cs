@@ -13,6 +13,11 @@ namespace StudentCourseManagement.Services.Services
             _studentRepository = studentRepository;
         }
 
+        public DeleteStudentResponse DeleteStudent(DeleteStudentRequest request)
+        {
+            return _studentRepository.DeleteStudent(request);
+        }
+
         public GetStudentsResponse GetStudents(GetStudentsRequest request)
         {
             var students = new GetStudentsResponse();

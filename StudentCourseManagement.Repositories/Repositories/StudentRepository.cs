@@ -96,5 +96,13 @@ namespace StudentCourseManagement.Repositories.Repositories
             response.Student = student;
             return response;
         }
+
+        public DeleteStudentResponse DeleteStudent(DeleteStudentRequest request)
+        {
+            var response = new DeleteStudentResponse();
+            var student = _context.Students.FirstOrDefault(x => x.Id == request.Id);
+            _context.Remove(student);
+            return response;
+        }
     }
 }
