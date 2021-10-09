@@ -14,7 +14,6 @@ function Datepicker(props) {
 Datepicker.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired

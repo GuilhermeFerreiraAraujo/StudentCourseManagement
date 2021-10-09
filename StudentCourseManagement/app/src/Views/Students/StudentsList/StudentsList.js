@@ -4,6 +4,7 @@ import Textbox from '../../../Components/Atoms/Textbox/Textbox';
 import Select from '../../../Components/Atoms/Select/Select';
 import Datepicker from '../../../Components/Atoms/Datepicker/Datepicker';
 import Button from '../../../Components/Atoms/Button/Button';
+import { withRouter } from "react-router-dom";
 import * as Services from '../../../Services/Services';
 import * as Endpoints from '../../../Constants/Endpoints';
 import './StudentsList.scss';
@@ -26,10 +27,16 @@ class StudentsList extends React.Component {
     };
 
     this.search = this.search.bind(this);
+    this.handleTableDoubleClick = this.handleTableDoubleClick.bind(this);
   }
 
   componentDidMount() {
     this.search();
+  }
+
+  handleTableDoubleClick(id){
+    const queryString = `id=${id}`;
+    this.props.history.push(`/student-detail?${queryString}`)
   }
 
   search() {
@@ -167,7 +174,7 @@ class StudentsList extends React.Component {
         </div>
 
         <div className="content container-fluid text-center">
-          <Table columns={columns} data={this.state.data} />
+          <Table columns={columns} data={this.state.data} onDoubleClick={this.handleTableDoubleClick} />
         </div>
 
 
@@ -176,4 +183,4 @@ class StudentsList extends React.Component {
   }
 }
 
-export default StudentsList;
+export default withRouter(StudentsList);

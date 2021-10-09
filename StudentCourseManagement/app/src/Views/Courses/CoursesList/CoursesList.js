@@ -3,6 +3,8 @@ import Table from '../../../Components/Components/Table/Table';
 import Textbox from '../../../Components/Atoms/Textbox/Textbox';
 import Datepicker from '../../../Components/Atoms/Datepicker/Datepicker';
 import Button from '../../../Components/Atoms/Button/Button';
+import { withRouter } from "react-router-dom";
+
 import * as Services from '../../../Services/Services';
 import * as Endpoints from '../../../Constants/Endpoints';
 import './CoursesList.scss';
@@ -26,6 +28,7 @@ class CoursesList extends React.Component {
     };
 
     this.search = this.search.bind(this);
+    this.handleTableDoubleClick = this.handleTableDoubleClick.bind(this);
   }
 
   componentDidMount() {
@@ -84,6 +87,11 @@ class CoursesList extends React.Component {
     let value = event.target.value;
     state[name] = value;
     this.setState(state);
+  }
+
+  handleTableDoubleClick(id){
+    const queryString = `id=${id}`;
+    this.props.history.push(`/course-detail?${queryString}`)
   }
 
   render() {
@@ -155,7 +163,7 @@ class CoursesList extends React.Component {
         </div>
 
         <div className="content container-fluid text-center">
-          <Table columns={columns} data={this.state.data} />
+          <Table columns={columns} data={this.state.data} onDoubleClick={this.handleTableDoubleClick}/>
         </div>
 
       </div>
@@ -163,4 +171,4 @@ class CoursesList extends React.Component {
   }
 }
 
-export default CoursesList;
+export default withRouter(CoursesList);
