@@ -41,3 +41,19 @@ BEGIN
 	);
 END
 GO
+
+IF NOT(EXISTS (SELECT * 
+                 FROM INFORMATION_SCHEMA.TABLES 
+                 WHERE TABLE_SCHEMA = 'dbo' 
+                 AND  TABLE_NAME = 'Subscriptions'))
+BEGIN
+    CREATE TABLE Subscriptions(
+		Id INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+		IdStudent int NOT NULL,
+		IdCourse int NOT NULL,
+		CONSTRAINT Fk_Subscriptions_Students FOREIGN KEY (IdStudent) REFERENCES Students(Id),
+		CONSTRAINT Fk_Subscriptions_Courses FOREIGN KEY (IdCourse) REFERENCES Courses(Id),
+	);
+END
+GO
+
