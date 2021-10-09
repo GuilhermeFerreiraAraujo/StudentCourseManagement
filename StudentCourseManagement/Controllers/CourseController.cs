@@ -22,12 +22,14 @@ namespace StudentCourseManagement.Controllers
         }
 
         [HttpGet]
+        [Route("GetCourses")]
         public IEnumerable<Course> Get([FromQuery] GetCoursesRequest request)
         {
             return _courseService.GetCourses(request);
         }
 
         [HttpPost]
+        [Route("UpsertCourse")]
         public IActionResult UpsertCourse([FromBody]UpsertCourseRequest request)
         {
             var response = new UpsertCourseResponse();

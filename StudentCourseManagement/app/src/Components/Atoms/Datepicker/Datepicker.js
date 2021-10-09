@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
-import './Textbox.scss';
+import './Datepicker.scss';
 
-function Textbox(props) {
+function Datepicker(props) {
     return (
         <div>
             <label for="exampleFormControlInput1" className="form-label">{props.label}</label>
-            <input type="email" className="form-control" name={props.name} onChange={props.onChange} placeholder={props.placeholder} value={props.value}/>
-            <small id="emailHelp" className="form-text text-muted text-danger">{props.error}</small>
+            <input type="date" className="form-control" name={props.name} onChange={props.onChange} placeholder={props.placeholder} value={props.value}/>
+            <small id="emailHelp" className="form-text text-muted">{props.error}</small>
         </div>
     );
 }
 
-Textbox.propTypes = {
+Datepicker.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
@@ -20,4 +20,4 @@ Textbox.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
-export default Textbox;
+export default Datepicker;

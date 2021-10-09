@@ -16,7 +16,7 @@ class CoursesList extends React.Component {
   componentDidMount() {
     Services.Get(Endpoints.CoursesApis.GetCourses).then(response => {
       this.setState({
-        data: response.data.Courses
+        data: response.data
       })
     }).catch(ex => {
       console.log(ex);
@@ -31,6 +31,22 @@ class CoursesList extends React.Component {
           {
             Header: "Name",
             accessor: "name"
+          },
+          {
+            Header: "Code",
+            accessor: "code"
+          },
+          {
+            Header: "Teacher",
+            accessor: "teacher"
+          },
+          {
+            Header: "Start Date",
+            accessor: "startDate"
+          },
+          {
+            Header: "End Date",
+            accessor: "endDate"
           },
         ]
       }

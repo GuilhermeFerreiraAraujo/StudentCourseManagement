@@ -4,13 +4,13 @@ export const StudentsApis = {
 };
 
 export const CoursesApis = {
-    GetCourses: "course",
-    UpsertCourses: "api/customers/login"
+    GetCourses: "Course/GetCourses",
+    UpsertCourses: "Course/UpsertCourse"
 };
 
 export const SubscriptionsApis = {
-    GetSubscriptions: "subscription",
-    UpsertSubscriptions: "api/customers/login"
+    GetSubscriptions: "Subscription/GetSubscription",
+    UpsertSubscriptions: "Subscription/UpsertSubscription"
 };
 
 export const ReportsApis = {

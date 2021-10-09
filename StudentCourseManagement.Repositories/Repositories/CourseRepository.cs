@@ -62,15 +62,15 @@ namespace StudentCourseManagement.Repositories.Repositories
         {
             var course = new Course
             {
-                Id = request.Idcourse,
-                Name = request.CourseName,
-                Teacher = request.TeacherName,
-                Code = request.CourseName,
+                Id = request.Id,
+                Name = request.Name,
+                Teacher = request.Teacher,
+                Code = request.Code,
                 EndDate = request.EndDate,
                 StartDate = request.StartDate
             };
 
-            if (request.Idcourse > 0)
+            if (request.Id > 0)
             {
                 _context.Update(course);
                 _context.SaveChanges();
