@@ -25,9 +25,9 @@ export default function Table({ columns, data }) {
     },
         usePagination)
     {
-
+        let pagination = "";
         if (data.length > pageSize) {
-            var pagination = (<div className="row footer text-center">
+            pagination = (<div className="row footer text-center">
                 <div >
                     <button className="btn btn-primary" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
                         {'<<'}
@@ -72,10 +72,8 @@ export default function Table({ columns, data }) {
                     </select>
                 </div>
             </div>)
-        } else {
-            var pagination = "";
-        }
-
+        } 
+        
         return (
             <div className="Table">
                 <table {...getTableProps()}>
