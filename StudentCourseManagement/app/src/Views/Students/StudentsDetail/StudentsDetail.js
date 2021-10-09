@@ -127,39 +127,41 @@ class StudentsDetail extends React.Component {
     const gender = ["Male", "Female"];
 
     return (
-      <div className="container-fluid text-start">
-        <div className="row">
-          <div className="col">
-            <Textbox label="First Name" type="text" placeholder="First Name" name="firstName" onChange={this.handleChange.bind(this)} value={this.state.firstName} error={this.state.errors.firstName} />
+      <div className="Student-Detail">
+        <div className="content container-fluid text-start">
+          <div className="row">
+            <div className="col">
+              <Textbox label="First Name" type="text" placeholder="First Name" name="firstName" onChange={this.handleChange.bind(this)} value={this.state.firstName} error={this.state.errors.firstName} />
+            </div>
+            <div className="col">
+              <Textbox label="Surname" type="text" placeholder="Surname" name="surname" value={this.state.surname} error={this.state.errors.surname} onChange={this.handleChange.bind(this)} />
+            </div>
+            <div className="col">
+              <Select label="Gender" name="gender" data={gender} />
+            </div>
+            <div className="col">
+              <Datepicker label="Date of Birth" type="text" placeholder="Date of Birth" name="dateOfBirth" value={this.state.dateOfBirth} error={this.state.errors.dateOfBirth} onChange={this.handleChange.bind(this)} />
+            </div>
           </div>
-          <div className="col">
-            <Textbox label="Surname" type="text" placeholder="Surname" name="surname" value={this.state.surname} error={this.state.errors.surname} onChange={this.handleChange.bind(this)} />
+          <div className="row">
+            <div className="col">
+              <Textbox label="Address 1" type="text" placeholder="Address 1" name="address1" value={this.state.address1} error={this.state.errors.address1} onChange={this.handleChange.bind(this)} />
+            </div>
+            <div className="col">
+              <Textbox label="Address 2" type="text" placeholder="Address 2" name="address2" value={this.state.address2} onChange={this.handleChange.bind(this)} />
+            </div>
+            <div className="col">
+              <Textbox label="Address 3" type="text" placeholder="Address 3" name="address3" value={this.state.address3} onChange={this.handleChange.bind(this)} />
+            </div>
+            <div className="col">
+            </div>
           </div>
-          <div className="col">
-            <Select label="Gender" name="gender" data={gender} />
-          </div>
-          <div className="col">
-            <Datepicker label="Date of Birth" type="text" placeholder="Date of Birth" name="dateOfBirth" value={this.state.dateOfBirth} error={this.state.errors.dateOfBirth} onChange={this.handleChange.bind(this)} />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <Textbox label="Address 1" type="text" placeholder="Address 1" name="address1" value={this.state.address1}  error={this.state.errors.address1} onChange={this.handleChange.bind(this)} />
-          </div>
-          <div className="col">
-            <Textbox label="Address 2" type="text" placeholder="Address 2" name="address2" value={this.state.address2} onChange={this.handleChange.bind(this)} />
-          </div>
-          <div className="col">
-            <Textbox label="Address 3" type="text" placeholder="Address 3" name="address3" value={this.state.address3} onChange={this.handleChange.bind(this)} />
-          </div>
-          <div className="col">
-          </div>
-        </div>
 
-        <div className="row text-end">
-          <div className="col">
-            <Button type="danger" label="Delete" />
-            <Button label="Save" onClick={this.saveStudent} />
+          <div className="row text-end">
+            <div className="col">
+              <Button type="danger" label="Delete" />
+              <Button label="Save" onClick={this.saveStudent} />
+            </div>
           </div>
         </div>
       </div>

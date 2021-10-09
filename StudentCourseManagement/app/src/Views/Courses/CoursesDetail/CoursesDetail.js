@@ -74,40 +74,44 @@ class CoursesDetail extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid text-start">
-        <div className="row">
-          <div className="col">
-            <Textbox label="Name" type="text" placeholder="Name" name="name" onChange={this.handleChange.bind(this)} value={this.state.name} />
+      <div className="Courses-Detail">
+        <div className="content container-fluid text-start">
+          <div className="row">
+            <div className="col">
+              <Textbox label="Name" type="text" placeholder="Name" name="name" onChange={this.handleChange.bind(this)} value={this.state.name} />
+            </div>
+            <div className="col">
+              <Textbox label="Code" type="text" placeholder="Code" name="code" value={this.state.code} onChange={this.handleChange.bind(this)} />
+            </div>
+            <div className="col">
+              <Textbox label="Teacher" type="text" placeholder="Teacher Name" name="teacher" value={this.state.teacher} onChange={this.handleChange.bind(this)} />
+            </div>
+            <div className="col">
+              <Textbox label="Start Date" type="text" placeholder="Start Date" name="startDate" value={this.state.startDate} onChange={this.handleChange.bind(this)} />
+            </div>
           </div>
-          <div className="col">
-            <Textbox label="Code" type="text" placeholder="Code" name="code" value={this.state.code} onChange={this.handleChange.bind(this)} />
+          <div className="row">
+            <div className="col">
+              <Textbox label="End Date" type="text" placeholder="Start Date" name="endDate" value={this.state.endDate} onChange={this.handleChange.bind(this)} />
+            </div>
+            <div className="col">
+            </div>
+            <div className="col">
+            </div>
+            <div className="col">
+            </div>
           </div>
-          <div className="col">
-            <Textbox label="Teacher" type="text" placeholder="Teacher Name" name="teacher" value={this.state.teacher} onChange={this.handleChange.bind(this)} />
-          </div>
-          <div className="col">
-            <Textbox label="Start Date" type="text" placeholder="Start Date" name="startDate" value={this.state.startDate} onChange={this.handleChange.bind(this)} />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <Textbox label="End Date" type="text" placeholder="Start Date" name="endDate" value={this.state.endDate} onChange={this.handleChange.bind(this)} />
-          </div>
-          <div className="col">
-          </div>
-          <div className="col">
-          </div>
-          <div className="col">
+
+          <div className="row text-end">
+            <div className="col">
+              <Button type="danger" disabled={this.state.id <= 0} label="Delete" />
+              <Button label="Save" onClick={this.save} />
+            </div>
           </div>
         </div>
 
-        <div className="row text-end">
-          <div className="col">
-            <Button type="danger" disabled={this.state.id <= 0} label="Delete" />
-            <Button label="Save" onClick={this.save} />
-          </div>
-        </div>
       </div>
+
     );
   }
 }
