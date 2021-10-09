@@ -10,9 +10,9 @@ namespace StudentCourseManagement.Controllers
     public class CourseController : ControllerBase
     {
         private readonly ILogger<CourseController> _logger;
-        private readonly CourseServiceInterface _courseService;
+        private readonly ICourseService _courseService;
 
-        public CourseController(ILogger<CourseController> logger, CourseServiceInterface courseService)
+        public CourseController(ILogger<CourseController> logger, ICourseService courseService)
         {
             _logger = logger;
             _courseService = courseService;

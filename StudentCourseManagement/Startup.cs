@@ -39,8 +39,8 @@ namespace StudentCourseManagement
         {
             services.AddDbContext<StudentCourseManagementContext>();
             services.AddTransient<IStudentRepository, StudentRepository>();
-            services.AddTransient<CourseRepositoryInterface, CourseRepository>();
-            services.AddTransient<CourseServiceInterface, CourseService>();
+            services.AddTransient<ICourseRepository, CourseRepository>();
+            services.AddTransient<ICourseService, CourseService>();
             services.AddTransient<IStudentService, StudentService>();
         }
 

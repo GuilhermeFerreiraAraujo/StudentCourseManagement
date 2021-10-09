@@ -7,10 +7,10 @@ using System.Collections.Generic;
 
 namespace StudentCourseManagement.Services.Services
 {
-    public class CourseService : CourseServiceInterface
+    public class CourseService : ICourseService
     {
-        private readonly CourseRepositoryInterface _courseRepository;
-        public CourseService(CourseRepositoryInterface courseRepository)
+        private readonly ICourseRepository _courseRepository;
+        public CourseService(ICourseRepository courseRepository)
         {
             _courseRepository = courseRepository;
         }

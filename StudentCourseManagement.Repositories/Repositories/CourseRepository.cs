@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace StudentCourseManagement.Repositories.Repositories
 {
-    public class CourseRepository : CourseRepositoryInterface
+    public class CourseRepository : ICourseRepository
     {
         private readonly StudentCourseManagementContext _context;
         public CourseRepository(StudentCourseManagementContext context)

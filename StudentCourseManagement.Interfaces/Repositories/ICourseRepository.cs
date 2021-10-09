@@ -3,11 +3,11 @@ using StudentCourseManagement.Models.Models.Requests;
 using StudentCourseManagement.Models.Models.Responses;
 using System.Collections.Generic;
 
-namespace StudentCourseManagement.Interfaces.Services
+namespace StudentCourseManagement.Interfaces.Repositories
 {
-    public interface CourseServiceInterface
+    public interface ICourseRepository
     {
-        UpsertCourseResponse UpsertCourse(UpsertCourseRequest request);
+        Course UpsertCourse(UpsertCourseRequest request);
         IEnumerable<Course> GetCourses(GetCoursesRequest request);
         DeleteCourseResponse DeleteCourse(DeleteCourseRequest request);
     }
