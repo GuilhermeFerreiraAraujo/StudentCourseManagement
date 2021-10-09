@@ -1,14 +1,12 @@
-
 import React from 'react';
 import Textbox from '../../../Components/Atoms/Textbox/Textbox';
 import Button from '../../../Components/Atoms/Button/Button';
 import * as Services from '../../../Services/Services';
 import * as Endpoints from '../../../Constants/Endpoints';
-import { Redirect } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import './CoursesDetail.scss';
 
 class CoursesDetail extends React.Component {
-
   constructor() {
     super();
     this.state = {
@@ -23,10 +21,29 @@ class CoursesDetail extends React.Component {
     this.deleteCourse = this.deleteCourse.bind(this);
     this.save = this.save.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   deleteCourse() {
     //Services.Post(Endpoints.StudentsApis.deleteStudent)
+  }
+
+  componentDidMount() {
+    const id = this.props.match.params.id;
+
+    if (id) {
+      const params = {
+        "id": id
+      };
+      Services.Get(Endpoints.CoursesApis.GetCourses, params).then(response => {
+        debugger;
+        this.setState({
+          data: response.data
+        })
+      }).catch(ex => {
+        console.log(ex);
+      });
+    }
   }
 
   save() {
@@ -97,4 +114,4 @@ class CoursesDetail extends React.Component {
   }
 }
 
-export default CoursesDetail;
+export default withRouter(CoursesDetail);

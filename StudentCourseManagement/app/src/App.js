@@ -51,11 +51,17 @@ function App() {
           <Route exact path="/">
             <StudentsList />
           </Route>
+          <Route exact path="/student-detail/:id">
+            <StudentsDetail />
+          </Route>
           <Route exact path="/student-detail">
             <StudentsDetail />
           </Route>
           <Route exact path="/courses-list">
             <CoursesList />
+          </Route>
+          <Route exact path="/course-detail/:id">
+            <CoursesDetail />
           </Route>
           <Route exact path="/course-detail">
             <CoursesDetail />

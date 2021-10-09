@@ -90,8 +90,7 @@ class CoursesList extends React.Component {
   }
 
   handleTableDoubleClick(id){
-    const queryString = `id=${id}`;
-    this.props.history.push(`/course-detail?${queryString}`)
+    this.props.history.push(`/course-detail/${id}`)
   }
 
   render() {

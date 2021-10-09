@@ -35,8 +35,7 @@ class StudentsList extends React.Component {
   }
 
   handleTableDoubleClick(id){
-    const queryString = `id=${id}`;
-    this.props.history.push(`/student-detail?${queryString}`)
+    this.props.history.push(`/student-detail/${id}`)
   }
 
   search() {
