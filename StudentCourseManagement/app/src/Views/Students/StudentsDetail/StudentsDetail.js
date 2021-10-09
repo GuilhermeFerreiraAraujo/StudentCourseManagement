@@ -5,7 +5,7 @@ import Select from '../../../Components/Atoms/Select/Select';
 import Datepicker from '../../../Components/Atoms/Datepicker/Datepicker';
 import * as Services from '../../../Services/Services';
 import * as Endpoints from '../../../Constants/Endpoints';
-import { Redirect } from "react-router-dom";
+import { Redirect, withRouter} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import './StudentsDetail.scss';
 
@@ -36,6 +36,22 @@ class StudentsDetail extends React.Component {
     this.saveStudent = this.saveStudent.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleValidation = this.handleValidation.bind(this);
+  }
+
+  componentDidMount() {
+    const id = this.props.match.params.id;
+
+    if (id) {
+      const params = {
+        "id": id
+      };
+      Services.Get(Endpoints.StudentsApis.GetStudents, params).then(response => {
+        const student = response.data.students[0];
+        this.setState(student)
+      }).catch(ex => {
+        console.log(ex);
+      });
+    }
   }
 
   deleteStudent() {
@@ -159,7 +175,7 @@ class StudentsDetail extends React.Component {
 
           <div className="row text-end">
             <div className="col">
-              <Button type="danger" label="Delete" />
+              <Button type="danger" disabled={this.state.id <= 0} label="Delete" />
               <Button label="Save" onClick={this.saveStudent} />
             </div>
           </div>
@@ -169,4 +185,4 @@ class StudentsDetail extends React.Component {
   }
 }
 
-export default StudentsDetail;
+export default withRouter(StudentsDetail);

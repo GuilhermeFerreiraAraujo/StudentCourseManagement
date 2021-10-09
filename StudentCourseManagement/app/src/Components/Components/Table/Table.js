@@ -27,19 +27,14 @@ export default function Table({ columns, data, onDoubleClick }) {
     {
         let pagination = "";
         if (data.length > pageSize) {
-            pagination = (<div className="row footer text-center">
+            pagination = (<div className="row text-center">
                 <div >
-                    <button className="btn btn-primary" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+                    {' '}
+                    <button className="btn btn-secondary" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
                         {'<<'}
                     </button>{' '}
-                    <button className="btn btn-primary" onClick={() => previousPage()} disabled={!canPreviousPage}>
+                    <button className="btn btn-secondary" onClick={() => previousPage()} disabled={!canPreviousPage}>
                         {'<'}
-                    </button>{' '}
-                    <button className="btn btn-primary" onClick={() => nextPage()} disabled={!canNextPage}>
-                        {'>'}
-                    </button>{' '}
-                    <button className="btn btn-primary" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-                        {'>>'}
                     </button>{' '}
                     <span>
                         Page{' '}
@@ -47,32 +42,16 @@ export default function Table({ columns, data, onDoubleClick }) {
                             {pageIndex + 1} of {pageOptions.length}
                         </strong>{' '}
                     </span>
-                    | Go to page:{' '}
-                    <input
-                        type="number"
-                        defaultValue={pageIndex + 1}
-                        onChange={e => {
-                            const page = e.target.value ? Number(e.target.value) - 1 : 0
-                            gotoPage(page)
-                        }}
-                        style={{ width: '100px' }}
-                    />
-                    {' '}
-                    <select
-                        value={pageSize}
-                        onChange={e => {
-                            setPageSize(Number(e.target.value))
-                        }}
-                    >
-                        {[10, 20, 30, 40, 50].map(pageSize => (
-                            <option key={pageSize} value={pageSize}>
-                                Show {pageSize}
-                            </option>
-                        ))}
-                    </select>
+
+                    <button className="btn btn-secondary" onClick={() => nextPage()} disabled={!canNextPage}>
+                        {'>'}
+                    </button>{' '}
+                    <button className="btn btn-secondary" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+                        {'>>'}
+                    </button>{' '}
                 </div>
             </div>)
-        } 
+        }
 
         return (
             <div className="Table">
@@ -99,6 +78,7 @@ export default function Table({ columns, data, onDoubleClick }) {
                         })}
                     </tbody>
                 </table >
+                <br/>
                 {pagination}
             </div>
         )
