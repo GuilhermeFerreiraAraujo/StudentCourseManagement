@@ -16,9 +16,56 @@ namespace StudentCourseManagement.Repositories.Repositories
             _context = context;
         }
 
+        private IQueryable<Student> AddFilters(IQueryable<Student> query, GetStudentsRequest request)
+        {
+            if (request.Id > 0)
+            {
+                return query.Where(x => x.Id == request.Id);
+            }
+
+            if (!string.IsNullOrEmpty(request.FirstName))
+            {
+                query = query.Where(x => x.FirstName.Contains(request.FirstName));
+            }
+
+            if (!string.IsNullOrEmpty(request.Surname))
+            {
+                query = query.Where(x => x.Surname.Contains(request.Surname));
+            }
+
+            if (!string.IsNullOrEmpty(request.Gender))
+            {
+                query = query.Where(x => x.Gender.Contains(request.Gender));
+            }
+
+            if (request.DateOfBirth.HasValue)
+            {
+                query = query.Where(x => x.DateOfBirth == request.DateOfBirth);
+            }
+
+            if (!string.IsNullOrEmpty(request.Address1))
+            {
+                query = query.Where(x => x.Address1.Contains(request.Address1));
+            }
+
+            if (!string.IsNullOrEmpty(request.Address2))
+            {
+                query = query.Where(x => x.Address2.Contains(request.Address2));
+            }
+
+            if (!string.IsNullOrEmpty(request.Address3))
+            {
+                query = query.Where(x => x.Address3.Contains(request.Address3));
+            }
+
+            return query;
+        }
+
         public List<Student> GetStudents(GetStudentsRequest request)
         {
-            return _context.Students.Where(x => x.Id > 0).ToList();
+            var query = _context.Students.Where(x => x.Id > 0);
+            query = AddFilters(query, request);
+            return query.ToList();
         }
 
         public UpsertStudentResponse UpsertStudent(UpsertStudentRequest request)

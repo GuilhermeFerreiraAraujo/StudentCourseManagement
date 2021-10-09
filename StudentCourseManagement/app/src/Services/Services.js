@@ -2,12 +2,13 @@ import axios from 'axios';
 
 const appUrl = 'https://localhost:44388/';
 
-export function Get(Endpoint) {
+export function Get(Endpoint, params) {
     const url = appUrl + Endpoint;
 
     const options = {
         method: 'GET',
         url: url,
+        params: params
     };
 
     return axios(options)

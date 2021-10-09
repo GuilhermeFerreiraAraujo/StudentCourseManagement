@@ -12,12 +12,39 @@ class StudentsList extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      filters: {
+        "id": "",
+        "firstName": "",
+        "surname": "",
+        "gender": "",
+        "dateOfBirth": "",
+        "address1": "",
+        "address2": "",
+        "address3": ""
+      }
     };
+
+    this.search = this.search.bind(this);
   }
 
   componentDidMount() {
-    Services.Get(Endpoints.StudentsApis.GetStudents).then(response => {
+    this.search();
+  }
+
+  search() {
+    const params = {
+      id: this.state.filters.id,
+      firstName: this.state.filters.firstName,
+      surname: this.state.filters.surname,
+      gender: this.state.filters.gender,
+      dateOfBirth: this.state.filters.dateOfBirth,
+      address1: this.state.filters.address1,
+      address2: this.state.filters.address2,
+      address3: this.state.filters.address3
+    };
+
+    Services.Get(Endpoints.StudentsApis.GetStudents, params).then(response => {
       this.setState({
         data: response.data.students
       })
@@ -28,7 +55,7 @@ class StudentsList extends React.Component {
 
   handleChange(event) {
     event.preventDefault();
-    let state = this.state;
+    let state = this.state.filters;
     let name = event.target.name;
     let value = event.target.value;
     state[name] = value;
@@ -71,7 +98,7 @@ class StudentsList extends React.Component {
         ]
       }
     ];
-    const gender = ["Male", "Female"];
+    const gender = ["", "Male", "Female"];
 
     return (
       <div className="Students-List">
@@ -80,35 +107,37 @@ class StudentsList extends React.Component {
 
           <div className="row">
             <div className="col">
-              <Textbox label="First Name" type="text" placeholder="First Name" name="firstName" onChange={this.handleChange.bind(this)} value={this.state.firstName} />
+              <Textbox label="Id" type="text" placeholder="Id" name="id" onChange={this.handleChange.bind(this)} value={this.state.filters.id} />
             </div>
             <div className="col">
-              <Textbox label="Surname" type="text" placeholder="Surname" name="surname" value={this.state.surname} onChange={this.handleChange.bind(this)} />
+              <Textbox label="First Name" type="text" placeholder="First Name" name="firstName" onChange={this.handleChange.bind(this)} value={this.state.filters.firstName} />
             </div>
             <div className="col">
-              <Select label="Gender" name="gender" data={gender} />
+              <Textbox label="Surname" type="text" placeholder="Surname" name="surname" value={this.state.filters.surname} onChange={this.handleChange.bind(this)} />
             </div>
             <div className="col">
-              <Datepicker label="Date of Birth" type="text" placeholder="Date of Birth" name="dateOfBirth" value={this.state.dateOfBirth} onChange={this.handleChange.bind(this)} />
+              <Select label="Gender" placeholder="Gender" name="gender" data={gender} />
             </div>
+
           </div>
           <div className="row">
             <div className="col">
-              <Textbox label="Address 1" type="text" placeholder="Address 1" name="address1" value={this.state.address1} onChange={this.handleChange.bind(this)} />
+              <Datepicker label="Date of Birth" type="text" placeholder="Date of Birth" name="dateOfBirth" value={this.state.filters.dateOfBirth} onChange={this.handleChange.bind(this)} />
             </div>
             <div className="col">
-              <Textbox label="Address 2" type="text" placeholder="Address 2" name="address2" value={this.state.address2} onChange={this.handleChange.bind(this)} />
+              <Textbox label="Address 1" type="text" placeholder="Address 1" name="address1" value={this.state.filters.address1} onChange={this.handleChange.bind(this)} />
             </div>
             <div className="col">
-              <Textbox label="Address 3" type="text" placeholder="Address 3" name="address3" value={this.state.address3} onChange={this.handleChange.bind(this)} />
+              <Textbox label="Address 2" type="text" placeholder="Address 2" name="address2" value={this.state.filters.address2} onChange={this.handleChange.bind(this)} />
             </div>
             <div className="col">
+              <Textbox label="Address 3" type="text" placeholder="Address 3" name="address3" value={this.state.filters.address3} onChange={this.handleChange.bind(this)} />
             </div>
           </div>
 
           <div className="row text-end">
             <div className="col">
-              <Button label="Search" onClick={this.saveStudent} />
+              <Button label="Search" onClick={this.search} />
             </div>
           </div>
 

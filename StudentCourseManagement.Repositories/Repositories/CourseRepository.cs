@@ -18,7 +18,7 @@ namespace StudentCourseManagement.Repositories.Repositories
 
         private IQueryable<Course> AddFilters(IQueryable<Course> query, GetCoursesRequest request)
         {
-            if (request.Id < 0)
+            if (request.Id > 0)
             {
                 return query.Where(x => x.Id == request.Id);
             }
