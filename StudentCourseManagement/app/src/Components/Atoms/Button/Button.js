@@ -5,7 +5,9 @@ function Button(props) {
     if (props.type === "danger"){
         return (<button disabled={props.disabled} onClick={props.onClick} className="button btn btn-danger mb-3">{props.label}</button>);
     }
-
+    if (props.type === "secondary"){
+        return (<button disabled={props.disabled} onClick={props.onClick} className="button btn btn-secondary mb-3">{props.label}</button>);
+    }
     return (<button disabled={props.disabled} onClick={props.onClick} className="button btn btn-primary mb-3">{props.label}</button>);
 }
 
