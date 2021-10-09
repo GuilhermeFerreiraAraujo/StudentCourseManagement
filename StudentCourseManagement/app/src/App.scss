@@ -1,6 +1,14 @@
 .App {
   text-align: center;
   box-sizing: content-box;
+  background-color: #EEEEEE;
+
+  .content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
 }
 
 @media all and (min-width: 992px) {

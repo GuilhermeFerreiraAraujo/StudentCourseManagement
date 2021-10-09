@@ -1,5 +1,9 @@
 import React from 'react';
 import Table from '../../../Components/Components/Table/Table';
+import Textbox from '../../../Components/Atoms/Textbox/Textbox';
+import Select from '../../../Components/Atoms/Select/Select';
+import Datepicker from '../../../Components/Atoms/Datepicker/Datepicker';
+import Button from '../../../Components/Atoms/Button/Button';
 import * as Services from '../../../Services/Services';
 import * as Endpoints from '../../../Constants/Endpoints';
 import './StudentsList.scss';
@@ -20,6 +24,15 @@ class StudentsList extends React.Component {
     }).catch(ex => {
       console.log(ex);
     });
+  }
+
+  handleChange(event) {
+    event.preventDefault();
+    let state = this.state;
+    let name = event.target.name;
+    let value = event.target.value;
+    state[name] = value;
+    this.setState(state);
   }
 
   render() {
@@ -58,10 +71,54 @@ class StudentsList extends React.Component {
         ]
       }
     ];
+    const gender = ["Male", "Female"];
 
     return (
-      <div>
-        <Table columns={columns} data={this.state.data} />
+      <div className="Students-List">
+
+        <div className="content container-fluid text-start">
+
+          <div className="row">
+            <div className="col">
+              <Textbox label="First Name" type="text" placeholder="First Name" name="firstName" onChange={this.handleChange.bind(this)} value={this.state.firstName} />
+            </div>
+            <div className="col">
+              <Textbox label="Surname" type="text" placeholder="Surname" name="surname" value={this.state.surname} onChange={this.handleChange.bind(this)} />
+            </div>
+            <div className="col">
+              <Select label="Gender" name="gender" data={gender} />
+            </div>
+            <div className="col">
+              <Datepicker label="Date of Birth" type="text" placeholder="Date of Birth" name="dateOfBirth" value={this.state.dateOfBirth} onChange={this.handleChange.bind(this)} />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <Textbox label="Address 1" type="text" placeholder="Address 1" name="address1" value={this.state.address1} onChange={this.handleChange.bind(this)} />
+            </div>
+            <div className="col">
+              <Textbox label="Address 2" type="text" placeholder="Address 2" name="address2" value={this.state.address2} onChange={this.handleChange.bind(this)} />
+            </div>
+            <div className="col">
+              <Textbox label="Address 3" type="text" placeholder="Address 3" name="address3" value={this.state.address3} onChange={this.handleChange.bind(this)} />
+            </div>
+            <div className="col">
+            </div>
+          </div>
+
+          <div className="row text-end">
+            <div className="col">
+              <Button label="Search" onClick={this.saveStudent} />
+            </div>
+          </div>
+
+        </div>
+
+        <div className="content container-fluid text-center">
+          <Table columns={columns} data={this.state.data} />
+        </div>
+
+
       </div>
     )
   }
