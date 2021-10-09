@@ -1,5 +1,5 @@
 export const StudentsApis = {
-    GetStudents: "student",
+    GetStudents: "Student/GetStudents",
     UpsertStudents: "Student/UpsertStudent"
 };
 

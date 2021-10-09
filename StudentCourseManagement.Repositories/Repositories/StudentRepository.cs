@@ -23,7 +23,31 @@ namespace StudentCourseManagement.Repositories.Repositories
 
         public UpsertStudentResponse UpsertStudent(UpsertStudentRequest request)
         {
-            throw new System.NotImplementedException();
+            var response = new UpsertStudentResponse();
+            var student = new Student
+            {
+                Id = request.Id,
+                FirstName = request.FirstName,
+                Surname = request.Surname,
+                Address1 = request.Address1,
+                Address2 = request.Address2,
+                Address3 = request.Address3,
+                DateOfBirth = request.DateOfBirth,
+                Gender = request.Gender
+            };
+
+            if (request.Id > 0)
+            {
+                _context.Students.Update(student);
+            }
+            else
+            {
+                _context.Students.Add(student);
+            }
+
+            _context.SaveChanges();
+            response.Student = student;
+            return response;
         }
     }
 }

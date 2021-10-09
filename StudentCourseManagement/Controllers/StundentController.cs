@@ -3,7 +3,6 @@ using Microsoft.Extensions.Logging;
 using StudentCourseManagement.Interfaces.Services;
 using StudentCourseManagement.Models.Models.Requests;
 using StudentCourseManagement.Models.Models.Responses;
-using System.Collections.Generic;
 
 namespace StudentCourseManagement.Controllers
 {

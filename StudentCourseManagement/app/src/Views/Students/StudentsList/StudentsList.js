@@ -8,16 +8,14 @@ class StudentsList extends React.Component {
   constructor() {
     super();
     this.state = {
-      Data: []
+      data: []
     };
   }
 
   componentDidMount() {
-
-    debugger;
     Services.Get(Endpoints.StudentsApis.GetStudents).then(response => {
       this.setState({
-        data: response.data.Students
+        data: response.data.students
       })
     }).catch(ex => {
       console.log(ex);
@@ -30,22 +28,40 @@ class StudentsList extends React.Component {
         Header: "Students",
         columns: [
           {
-            Header: "Name",
-            accessor: "name"
+            Header: "First Name",
+            accessor: "firstName"
+          },
+          {
+            Header: "Surname",
+            accessor: "surname"
+          },
+          {
+            Header: "Gender",
+            accessor: "gender"
+          },
+          {
+            Header: "Date of Birth",
+            accessor: "dateOfBirth"
+          },
+          {
+            Header: "Address 1",
+            accessor: "address1"
+          },
+          {
+            Header: "Address 2",
+            accessor: "address2"
+          },
+          {
+            Header: "Address 3",
+            accessor: "address3"
           },
         ]
       }
     ];
 
-    const data = [
-      {
-        "name": "Guilherme Ferreira de Araújo"
-      }
-    ];
-
     return (
       <div>
-        <Table columns={columns} data={data} />
+        <Table columns={columns} data={this.state.data} />
       </div>
     )
   }

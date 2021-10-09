@@ -12,18 +12,19 @@ class StudentsDetail extends React.Component {
   constructor() {
     super();
     this.state = {
-      id: 12,
-      firstName: "Guilherme",
-      surname: "Ferreira",
-      gender: "Male",
-      dateOfBirth: new Date(),
-      address1: "Rua 1",
-      address2: "Morada 2",
-      address3: "Street 3"
+      id: 0,
+      firstName: "",
+      surname: "",
+      gender: "",
+      dateOfBirth: null,
+      address1: "",
+      address2: "",
+      address3: ""
     };
 
     this.deleteStudent = this.deleteStudent.bind(this);
     this.saveStudent = this.saveStudent.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   deleteStudent() {
@@ -51,32 +52,41 @@ class StudentsDetail extends React.Component {
     })
   }
 
+  handleChange(event) {
+    event.preventDefault();
+    let state = this.state;
+    let name = event.target.name;
+    let value = event.target.value;
+    state[name] = value;
+    this.setState(state);
+}
+
   render() {
     return (
       <div className="container-fluid text-start">
         <div className="row">
           <div className="col">
-            <Textbox label="First Name" type="text" placeholder="First Name" />
+            <Textbox label="First Name" type="text" placeholder="First Name" name="firstName" onChange={this.handleChange.bind(this)} value={this.state.firstName} />
           </div>
           <div className="col">
-            <Textbox label="Surname" type="text" placeholder="Surname" />
+            <Textbox label="Surname" type="text" placeholder="Surname" name="surname" value={this.state.surname} onChange={this.handleChange.bind(this)}/>
           </div>
           <div className="col">
-            <Textbox label="Gender" type="text" placeholder="Gender" />
+            <Textbox label="Gender" type="text" placeholder="Gender" name="gender" value={this.state.gender} onChange={this.handleChange.bind(this)}/>
           </div>
           <div className="col">
-            <Textbox label="Date of Birth" type="text" placeholder="Date of Birth" />
+            <Textbox label="Date of Birth" type="text" placeholder="Date of Birth" name="dateOfBirth" value={this.state.dateOfBirth} onChange={this.handleChange.bind(this)}/>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <Textbox label="Address 1" type="text" placeholder="Address 1" />
+            <Textbox label="Address 1" type="text" placeholder="Address 1" name="address1" value={this.state.address1} onChange={this.handleChange.bind(this)}/>
           </div>
           <div className="col">
-            <Textbox label="Address 2" type="text" placeholder="Address 2" />
+            <Textbox label="Address 2" type="text" placeholder="Address 2" name="address2" value={this.state.address2} onChange={this.handleChange.bind(this)}/>
           </div>
           <div className="col">
-            <Textbox label="Address 3" type="text" placeholder="Address 3" />
+            <Textbox label="Address 3" type="text" placeholder="Address 3" name="address3" value={this.state.address3} onChange={this.handleChange.bind(this)}/>
           </div>
           <div className="col">
           </div>
