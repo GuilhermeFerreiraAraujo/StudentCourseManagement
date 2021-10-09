@@ -102,6 +102,7 @@ namespace StudentCourseManagement.Repositories.Repositories
             var response = new DeleteStudentResponse();
             var student = _context.Students.FirstOrDefault(x => x.Id == request.Id);
             _context.Remove(student);
+            _context.SaveChanges();
             return response;
         }
     }

@@ -32,7 +32,7 @@ class StudentsDetail extends React.Component {
       }
     };
 
-    this.deleteStudent = this.deleteStudent.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.saveStudent = this.saveStudent.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleValidation = this.handleValidation.bind(this);
@@ -53,11 +53,6 @@ class StudentsDetail extends React.Component {
       });
     }
   }
-
-  deleteStudent() {
-    //Services.Post(Endpoints.StudentsApis.deleteStudent)
-  }
-
 
   handleValidation() {
     let fields = this.state;
@@ -121,12 +116,28 @@ class StudentsDetail extends React.Component {
 
       Services.Post(Endpoints.StudentsApis.UpsertStudents, data).then(response => {
         alert("success");
-        <Redirect to="/" />
+        
       }).catch(ex => {
         alert("Error");
         console.log(ex);
       })
     }
+  }
+
+  handleDelete(){
+      if (this.state.id > 0)
+      {
+        const data = {
+          "id": this.state.id,
+        }
+  
+        Services.Post(Endpoints.StudentsApis.DeleteStudent, data).then(response => {
+          this.props.history.push("/")
+        }).catch(ex => {
+          alert("Error");
+          console.log(ex);
+        })
+      }
   }
 
   handleChange(event) {
@@ -175,7 +186,7 @@ class StudentsDetail extends React.Component {
 
           <div className="row text-end">
             <div className="col">
-              <Button type="danger" disabled={this.state.id <= 0} label="Delete" />
+              <Button type="danger" disabled={this.state.id <= 0} label="Delete" onClick={this.handleDelete}/>
               <Button label="Save" onClick={this.saveStudent} />
             </div>
           </div>

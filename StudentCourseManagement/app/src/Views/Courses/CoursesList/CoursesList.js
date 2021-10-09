@@ -99,6 +99,10 @@ class CoursesList extends React.Component {
         Header: "Courses",
         columns: [
           {
+            Header: "Id",
+            accessor: "id"
+          },
+          {
             Header: "Name",
             accessor: "name"
           },

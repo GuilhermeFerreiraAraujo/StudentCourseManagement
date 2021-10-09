@@ -18,14 +18,10 @@ class CoursesDetail extends React.Component {
       endDate: new Date()
     };
 
-    this.deleteCourse = this.deleteCourse.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.save = this.save.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
-  }
-
-  deleteCourse() {
-    //Services.Post(Endpoints.StudentsApis.deleteStudent)
   }
 
   componentDidMount() {
@@ -72,6 +68,21 @@ class CoursesDetail extends React.Component {
     this.setState(state);
   }
 
+  handleDelete() {
+    if (this.state.id > 0) {
+      const data = {
+        "id": this.state.id,
+      }
+
+      Services.Post(Endpoints.CoursesApis.DeleteCourse, data).then(response => {
+        this.props.history.push("/courses-list")
+      }).catch(ex => {
+        alert("Error");
+        console.log(ex);
+      })
+    }
+  }
+
   render() {
     return (
       <div className="Courses-Detail">
@@ -104,7 +115,7 @@ class CoursesDetail extends React.Component {
 
           <div className="row text-end">
             <div className="col">
-              <Button type="danger" disabled={this.state.id <= 0} label="Delete" />
+              <Button type="danger" disabled={this.state.id <= 0} label="Delete" onClick={this.handleDelete} />
               <Button label="Save" onClick={this.save} />
             </div>
           </div>

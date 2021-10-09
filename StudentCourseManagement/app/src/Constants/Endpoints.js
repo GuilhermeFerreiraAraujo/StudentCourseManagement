@@ -1,11 +1,13 @@
 export const StudentsApis = {
     GetStudents: "Student/GetStudents",
-    UpsertStudents: "Student/UpsertStudent"
+    UpsertStudents: "Student/UpsertStudent",
+    DeleteStudent: "Student/DeleteStudent"
 };
 
 export const CoursesApis = {
     GetCourses: "Course/GetCourses",
-    UpsertCourses: "Course/UpsertCourse"
+    UpsertCourses: "Course/UpsertCourse",
+    DeleteCourse: "Course/DeleteCourse"
 };
 
 export const SubscriptionsApis = {
