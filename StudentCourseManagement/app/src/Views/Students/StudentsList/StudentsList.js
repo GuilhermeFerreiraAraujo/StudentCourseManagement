@@ -33,15 +33,38 @@ class StudentsList extends React.Component {
   }
 
   search() {
-    const params = {
-      id: this.state.filters.id,
-      firstName: this.state.filters.firstName,
-      surname: this.state.filters.surname,
-      gender: this.state.filters.gender,
-      dateOfBirth: this.state.filters.dateOfBirth,
-      address1: this.state.filters.address1,
-      address2: this.state.filters.address2,
-      address3: this.state.filters.address3
+    const params = {};
+
+    if (this.state.filters.id !== ""){
+      params.id = this.state.filters.id
+    };
+
+    if (this.state.filters.firstName !== ""){
+      params.firstName = this.state.filters.firstName
+    };
+
+    if (this.state.filters.surname !== ""){
+      params.surname = this.state.filters.surname
+    };
+
+    if (this.state.filters.gender !== ""){
+      params.gender = this.state.filters.gender
+    };
+
+    if (this.state.filters.address1 !== ""){
+      params.address1 = this.state.filters.address1
+    };
+
+    if (this.state.filters.address2 !== ""){
+      params.address2 = this.state.filters.address2
+    };
+
+    if (this.state.filters.address3 !== ""){
+      params.address3 = this.state.filters.address3
+    };
+
+    if (this.state.filters.dateOfBirth !== ""){
+      params.dateOfBirth = this.state.filters.dateOfBirth
     };
 
     Services.Get(Endpoints.StudentsApis.GetStudents, params).then(response => {

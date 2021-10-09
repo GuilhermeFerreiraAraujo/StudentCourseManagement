@@ -9,7 +9,6 @@ export default function Table({ columns, data }) {
         headerGroups,
         prepareRow,
         page,
-
         canPreviousPage,
         canNextPage,
         pageOptions,
@@ -25,34 +24,10 @@ export default function Table({ columns, data }) {
         initialState: { pageIndex: 0, pageSize: 10 }
     },
         usePagination)
+    {
 
-    return (
-        <div className="Table">
-            <table {...getTableProps()}>
-                <thead>
-                    {
-                        headerGroups.map(headerGroup => (
-                            <tr {...headerGroup.getHeaderGroupProps()}>
-                                {headerGroup.headers.map(column => (<th {...column.getHeaderProps()}>{column.render('Header')}</th>))}
-                            </tr>))
-                    }
-                </thead>
-
-                <tbody {...getTableBodyProps()}>
-                    {page.map((row, i) => {
-                        prepareRow(row);
-                        return (
-                            <tr {...row.getRowProps()}>
-                                {row.cells.map(cell => {
-                                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
-                                })}
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </table >
-
-            <div className="row footer text-center">
+        if (data.length > pageSize) {
+            var pagination = (<div className="row footer text-center">
                 <div >
                     <button className="btn btn-primary" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
                         {'<<'}
@@ -96,9 +71,38 @@ export default function Table({ columns, data }) {
                         ))}
                     </select>
                 </div>
+            </div>)
+        } else {
+            var pagination = "";
+        }
 
+        return (
+            <div className="Table">
+                <table {...getTableProps()}>
+                    <thead>
+                        {
+                            headerGroups.map(headerGroup => (
+                                <tr {...headerGroup.getHeaderGroupProps()}>
+                                    {headerGroup.headers.map(column => (<th {...column.getHeaderProps()}>{column.render('Header')}</th>))}
+                                </tr>))
+                        }
+                    </thead>
+
+                    <tbody {...getTableBodyProps()}>
+                        {page.map((row, i) => {
+                            prepareRow(row);
+                            return (
+                                <tr {...row.getRowProps()}>
+                                    {row.cells.map(cell => {
+                                        return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
+                                    })}
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table >
+                {pagination}
             </div>
-
-        </div>
-    )
+        )
+    }
 }
