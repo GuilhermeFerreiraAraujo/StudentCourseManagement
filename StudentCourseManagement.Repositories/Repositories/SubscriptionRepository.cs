@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using StudentCourseManagement.Interfaces.Repositories;
+using StudentCourseManagement.Models;
 using StudentCourseManagement.Models.Models.Entities;
 using StudentCourseManagement.Models.Models.Requests;
 using StudentCourseManagement.Models.Models.Responses;
@@ -70,7 +71,7 @@ namespace StudentCourseManagement.Repositories.Repositories
                 {
                     ParameterName = "@MaxNumberOfSubscriptions", 
                     SqlDbType = SqlDbType.Int, 
-                    Value = 5, 
+                    Value = Constants.MaxNumberOfSubscriptions, 
                     Direction = ParameterDirection.Input 
                 };
                 cmd.Parameters.Add(maxNumberOfSubscriptions);
@@ -93,7 +94,7 @@ namespace StudentCourseManagement.Repositories.Repositories
                 {
                     ParameterName = "@MaxNumberOfSubscriptions",
                     SqlDbType = SqlDbType.Int,
-                    Value = 5,
+                    Value = Constants.MaxNumberOfSubscriptions,
                     Direction = ParameterDirection.Input
                 });
 
@@ -132,6 +133,13 @@ namespace StudentCourseManagement.Repositories.Repositories
             if (subscription != null)
             {
                 throw new Exception("Subscription already exists");
+            }
+
+            var subscriptions = _context.Subscriptions.Where(x => x.IdStudent == request.IdStudent).ToList();
+
+            if (subscriptions.Count >= Constants.MaxNumberOfSubscriptions)
+            {
+                throw new Exception("This student already reach the maximum number of subscriptions");
             }
 
             var newSubscription = new Subscription
