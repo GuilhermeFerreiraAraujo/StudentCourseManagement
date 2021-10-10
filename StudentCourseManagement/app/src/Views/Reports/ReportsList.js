@@ -166,7 +166,7 @@ class ReportsList extends React.Component {
                  <div className="content container-fluid text-center">
                     <div className="row">
                         <div className="col">
-                            <h1>Courses with full capacity: {this.state.coursesWithoutFullCapacity} </h1>
+                            <h1>Courses without full capacity: {this.state.coursesWithoutFullCapacity} </h1>
                         </div>
                         <div className="col">
                             <h1>Students with all subscriptions: {this.state.studentsWithoutAllSubscriptions}</h1>
