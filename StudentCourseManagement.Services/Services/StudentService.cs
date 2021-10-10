@@ -25,6 +25,11 @@ namespace StudentCourseManagement.Services.Services
             return students;
         }
 
+        public GetStudentsByCourseIdResponse GetStudentsByCourseId(int id)
+        {
+            return _studentRepository.GetStudentsByCourseId(id);
+        }
+
         public UpsertStudentResponse UpsertStudent(UpsertStudentRequest request)
         {
             return _studentRepository.UpsertStudent(request);

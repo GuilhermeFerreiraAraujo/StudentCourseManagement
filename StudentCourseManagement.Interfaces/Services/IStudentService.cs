@@ -8,5 +8,6 @@ namespace StudentCourseManagement.Interfaces.Services
         UpsertStudentResponse UpsertStudent(UpsertStudentRequest request);
         GetStudentsResponse GetStudents(GetStudentsRequest request);
         DeleteStudentResponse DeleteStudent(DeleteStudentRequest request);
+        GetStudentsByCourseIdResponse GetStudentsByCourseId(int id);
     }
 }

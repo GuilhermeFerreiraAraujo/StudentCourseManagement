@@ -1,4 +1,5 @@
-﻿using StudentCourseManagement.Interfaces.Repositories;
+﻿using Microsoft.Data.SqlClient;
+using StudentCourseManagement.Interfaces.Repositories;
 using StudentCourseManagement.Models.Models.Entities;
 using StudentCourseManagement.Models.Models.Requests;
 using StudentCourseManagement.Models.Models.Responses;
@@ -104,6 +105,16 @@ namespace StudentCourseManagement.Repositories.Repositories
             _context.Remove(student);
             _context.SaveChanges();
             return response;
+        }
+
+        public GetStudentsByCourseIdResponse GetStudentsByCourseId(int id)
+        {
+
+            return null;
+           
+
+
+
         }
     }
 }

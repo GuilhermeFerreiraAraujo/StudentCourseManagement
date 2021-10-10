@@ -10,5 +10,6 @@ namespace StudentCourseManagement.Interfaces.Repositories
         List<Student> GetStudents(GetStudentsRequest request);
         UpsertStudentResponse UpsertStudent(UpsertStudentRequest request);
         DeleteStudentResponse DeleteStudent(DeleteStudentRequest request);
+        GetStudentsByCourseIdResponse GetStudentsByCourseId(int id);
     }
 }

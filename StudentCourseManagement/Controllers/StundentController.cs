@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using StudentCourseManagement.Interfaces.Services;
 using StudentCourseManagement.Models.Models.Requests;
+using StudentCourseManagement.Models.Models.Responses;
 using System;
 
 namespace StudentCourseManagement.Controllers
@@ -32,6 +33,25 @@ namespace StudentCourseManagement.Controllers
                 return BadRequest("There was a problem with your request!");
             }
         }
+
+        [HttpGet]
+        [Route("GetStudentsByCourseId")]
+        public IActionResult GetStudentsByCourseId([FromQuery]int id) 
+        {
+            try
+            {
+                var response = new GetStudentsByCourseIdResponse();
+
+                response = _studentService.GetStudentsByCourseId(id);
+
+                return Ok(response);
+            }
+            catch (Exception)
+            {
+                return BadRequest("There was a problem with your request!");
+            }
+        }
+
 
         [HttpPost]
         [Route("UpsertStudent")]
