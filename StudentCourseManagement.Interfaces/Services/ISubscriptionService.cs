@@ -8,5 +8,6 @@ namespace StudentCourseManagement.Interfaces.Services
         GetSubscriptionsResponse GetSubscriptions(GetSubscriptionsRequest request);
         UpsertSubscriptionResponse UpsertSubscription(UpsertSubscriptionRequest request);
         DeleteSubscriptionResponse DeleteSubscription(DeleteSubscriptionRequest request);
+        GetSubscriptionsStatisticsResponse GetSubscriptionsStatistics();
     }
 }

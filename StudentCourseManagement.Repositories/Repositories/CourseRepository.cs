@@ -1,9 +1,12 @@
-﻿using StudentCourseManagement.Interfaces.Repositories;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using StudentCourseManagement.Interfaces.Repositories;
 using StudentCourseManagement.Models.Models.Entities;
 using StudentCourseManagement.Models.Models.Requests;
 using StudentCourseManagement.Models.Models.Responses;
 using StudentCourseManagement.Repositories.Models;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace StudentCourseManagement.Repositories.Repositories
@@ -88,6 +91,15 @@ namespace StudentCourseManagement.Repositories.Repositories
             var course = _context.Courses.FirstOrDefault(x => x.Id == request.Id);
             _context.Courses.Remove(course);
             _context.SaveChanges();
+            return response;
+        }
+
+        public GetCoursesByStudentIdResponse GetCoursesByStudentId(int id)
+        {
+            var response = new GetCoursesByStudentIdResponse();
+            var parameters = new[] { new SqlParameter("@StudentId", SqlDbType.Int) { Direction = ParameterDirection.Input, Value = id } };
+            var courses = _context.Courses.FromSqlRaw("[dbo].[GetCoursesByStudentId] @StudentId ", parameters).ToList();
+            response.Courses = courses;
             return response;
         }
     }

@@ -13,5 +13,6 @@ namespace StudentCourseManagement.Interfaces.Repositories
         DeleteSubscriptionResponse DeleteSubscription(DeleteSubscriptionRequest request);
         UpsertSubscriptionResponse UpsertSubscription(UpsertSubscriptionRequest request);
         GetSubscriptionsResponse GetSubscriptions(GetSubscriptionsRequest request);
+        GetSubscriptionsStatisticsResponse GetSubscriptionStatistics();
     }
 }

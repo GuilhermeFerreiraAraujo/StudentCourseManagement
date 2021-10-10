@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using StudentCourseManagement.Interfaces.Services;
 using StudentCourseManagement.Models.Models.Requests;
+using StudentCourseManagement.Models.Models.Responses;
 using System;
 
 namespace StudentCourseManagement.Controllers
@@ -27,7 +28,24 @@ namespace StudentCourseManagement.Controllers
             {
                 return Ok(_subscriptionService.GetSubscriptions(request));
             }
-            catch (Exception)
+            catch (Exception ex)
+            {
+                return BadRequest("There was a problem with your request!");
+            }
+        }
+
+        [HttpGet]
+        [Route("GetSubscriptionsStatistics")]
+        public IActionResult GetSubscriptionsStatistics() 
+        {
+            try
+            {
+                var response = new GetSubscriptionsStatisticsResponse();
+                response = _subscriptionService.GetSubscriptionsStatistics();
+
+                return Ok(response);
+            }
+            catch (Exception ex)
             {
                 return BadRequest("There was a problem with your request!");
             }

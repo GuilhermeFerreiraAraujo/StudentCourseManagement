@@ -10,5 +10,6 @@ namespace StudentCourseManagement.Interfaces.Services
         UpsertCourseResponse UpsertCourse(UpsertCourseRequest request);
         IEnumerable<Course> GetCourses(GetCoursesRequest request);
         DeleteCourseResponse DeleteCourse(DeleteCourseRequest request);
+        GetCoursesByStudentIdResponse GetCoursesByStudentId(int id);
     }
 }

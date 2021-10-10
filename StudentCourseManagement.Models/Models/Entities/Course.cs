@@ -16,7 +16,6 @@ namespace StudentCourseManagement.Models.Models.Entities
         public string Teacher { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-
         public virtual ICollection<Subscription> Subscriptions { get; set; }
     }
 }

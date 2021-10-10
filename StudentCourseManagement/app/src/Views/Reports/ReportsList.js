@@ -11,6 +11,8 @@ class ReportsList extends React.Component {
     constructor() {
         super();
         this.state = {
+            coursesWithoutFullCapacity: 0,
+            studentsWithoutAllSubscriptions: 0,
             students: [],
             courses: [],
             filters: {
@@ -24,7 +26,14 @@ class ReportsList extends React.Component {
     }
 
     componentDidMount() {
-
+        Services.Get(Endpoints.SubscriptionsApis.GetSubscriptionsStatistics).then(response => {
+            this.setState({
+                coursesWithoutFullCapacity: response.data.coursesWithoutFullCapacity,
+                studentsWithoutAllSubscriptions: response.data.studentsWithoutAllSubscriptions
+            })
+        }).catch(ex => {
+            console.log(ex);
+        });
     }
 
     searchCoursesByStudentId() {
@@ -34,9 +43,9 @@ class ReportsList extends React.Component {
             params.id = this.state.filters.idStudent;
         };
 
-        Services.Get(Endpoints.StudentsApis.GetCoursesByStudentId, params).then(response => {
+        Services.Get(Endpoints.CoursesApis.GetCoursesByStudentId, params).then(response => {
             this.setState({
-                courses: response.data.students
+                courses: response.data.courses
             })
         }).catch(ex => {
             console.log(ex);
@@ -154,6 +163,16 @@ class ReportsList extends React.Component {
 
         return (
             <div className="Students-List">
+                 <div className="content container-fluid text-center">
+                    <div className="row">
+                        <div className="col">
+                            <h1>Courses with full capacity: {this.state.coursesWithoutFullCapacity} </h1>
+                        </div>
+                        <div className="col">
+                            <h1>Students with all subscriptions: {this.state.studentsWithoutAllSubscriptions}</h1>
+                        </div>
+                    </div>
+                </div>
                 <div className="content container-fluid text-start">
                     <div className="row">
                         <div className="col">

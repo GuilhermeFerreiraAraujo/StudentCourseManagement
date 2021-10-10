@@ -25,6 +25,11 @@ namespace StudentCourseManagement.Services.Services
             return _courseRepository.GetCourses(request);
         }
 
+        public GetCoursesByStudentIdResponse GetCoursesByStudentId(int id)
+        {
+            return _courseRepository.GetCoursesByStudentId(id);
+        }
+
         public bool IsFormValid(UpsertCourseRequest request)
         {
             bool isFormValid = true;

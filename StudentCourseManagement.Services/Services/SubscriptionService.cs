@@ -22,6 +22,11 @@ namespace StudentCourseManagement.Services.Services
             return _subscriptionRepository.GetSubscriptions(request);
         }
 
+        public GetSubscriptionsStatisticsResponse GetSubscriptionsStatistics()
+        {
+            return _subscriptionRepository.GetSubscriptionStatistics();
+        }
+
         public UpsertSubscriptionResponse UpsertSubscription(UpsertSubscriptionRequest request)
         {
             return _subscriptionRepository.UpsertSubscription(request);
