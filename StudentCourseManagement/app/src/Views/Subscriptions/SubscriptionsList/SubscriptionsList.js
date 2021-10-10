@@ -18,7 +18,7 @@ class SubscriptionsList extends React.Component {
       this.setState({
         data: response.data.subscriptions
       })
-    }).catch(ex =>{
+    }).catch(ex => {
       console.log(ex);
     });
   }
@@ -61,9 +61,14 @@ class SubscriptionsList extends React.Component {
     ];
 
     return (
-      <div>
-        <Table columns={columns} data={this.state.data} />
+
+      <div className="Subscriptions-List">
+        <div className="content container-fluid text-center">
+
+          <Table columns={columns} data={this.state.data} />
+        </div>
       </div>
+
     )
   }
 }
