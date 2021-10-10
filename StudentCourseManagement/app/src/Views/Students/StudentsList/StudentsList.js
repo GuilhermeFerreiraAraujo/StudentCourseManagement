@@ -34,42 +34,42 @@ class StudentsList extends React.Component {
     this.search();
   }
 
-  handleTableDoubleClick(id){
+  handleTableDoubleClick(id) {
     this.props.history.push(`/student-detail/${id}`)
   }
 
   search() {
     const params = {};
 
-    if (this.state.filters.id !== ""){
+    if (this.state.filters.id !== "") {
       params.id = this.state.filters.id
     };
 
-    if (this.state.filters.firstName !== ""){
+    if (this.state.filters.firstName !== "") {
       params.firstName = this.state.filters.firstName
     };
 
-    if (this.state.filters.surname !== ""){
+    if (this.state.filters.surname !== "") {
       params.surname = this.state.filters.surname
     };
 
-    if (this.state.filters.gender !== ""){
+    if (this.state.filters.gender !== "") {
       params.gender = this.state.filters.gender
     };
 
-    if (this.state.filters.address1 !== ""){
+    if (this.state.filters.address1 !== "") {
       params.address1 = this.state.filters.address1
     };
 
-    if (this.state.filters.address2 !== ""){
+    if (this.state.filters.address2 !== "") {
       params.address2 = this.state.filters.address2
     };
 
-    if (this.state.filters.address3 !== ""){
+    if (this.state.filters.address3 !== "") {
       params.address3 = this.state.filters.address3
     };
 
-    if (this.state.filters.dateOfBirth !== ""){
+    if (this.state.filters.dateOfBirth !== "") {
       params.dateOfBirth = this.state.filters.dateOfBirth
     };
 
@@ -114,7 +114,7 @@ class StudentsList extends React.Component {
           },
           {
             Header: "Date of Birth",
-            accessor: "dateOfBirth"
+            accessor: row => new Date(row.dateOfBirth).toLocaleDateString("pt-PT")
           },
           {
             Header: "Address 1",
@@ -132,6 +132,12 @@ class StudentsList extends React.Component {
       }
     ];
     const gender = ["", "Male", "Female"];
+
+    if (this.state.data.length > 0) {
+      var studentsList = (<div className="content container-fluid text-center">
+        <Table columns={columns} data={this.state.data} onDoubleClick={this.handleTableDoubleClick} />
+      </div>);
+    }
 
     return (
       <div className="Students-List">
@@ -176,9 +182,7 @@ class StudentsList extends React.Component {
 
         </div>
 
-        <div className="content container-fluid text-center">
-          <Table columns={columns} data={this.state.data} onDoubleClick={this.handleTableDoubleClick} />
-        </div>
+        {studentsList}
 
 
       </div>

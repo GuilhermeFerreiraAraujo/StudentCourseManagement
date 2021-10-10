@@ -16,7 +16,7 @@ class StudentsDetail extends React.Component {
       id: 0,
       firstName: "",
       surname: "",
-      gender: "",
+      gender: "Male",
       dateOfBirth: "",
       address1: "",
       address2: "",
@@ -116,7 +116,7 @@ class StudentsDetail extends React.Component {
 
       Services.Post(Endpoints.StudentsApis.UpsertStudents, data).then(response => {
         alert("success");
-        
+        this.props.history.push("/courses-list")
       }).catch(ex => {
         alert("Error");
         console.log(ex);
@@ -164,7 +164,7 @@ class StudentsDetail extends React.Component {
               <Textbox label="Surname" type="text" placeholder="Surname" name="surname" value={this.state.surname} error={this.state.errors.surname} onChange={this.handleChange.bind(this)} />
             </div>
             <div className="col">
-              <Select label="Gender" name="gender" data={gender} />
+              <Select label="Gender" name="gender" data={gender}  onChange={this.handleChange.bind(this)} value={this.state.gender} />
             </div>
             <div className="col">
               <Datepicker label="Date of Birth" type="text" placeholder="Date of Birth" name="dateOfBirth" value={this.state.dateOfBirth} error={this.state.errors.dateOfBirth} onChange={this.handleChange.bind(this)} />

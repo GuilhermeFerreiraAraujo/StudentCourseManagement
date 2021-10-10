@@ -6,8 +6,8 @@ function Select(props) {
 
     return (
         <div>
-            <label  className="form-label" for="exampleFormControlSelect1">{props.label}</label>
-            <select class="form-control" name={props.name} id="">
+            <label className="form-label" for="exampleFormControlSelect1">{props.label}</label>
+            <select class="form-control" name={props.name} onChange={props.onChange} value={props.value} id="">
                 {list}
             </select>
             <small id="" className="form-text text-muted">{props.error}</small>
