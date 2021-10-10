@@ -11,7 +11,7 @@ export const CoursesApis = {
 };
 
 export const SubscriptionsApis = {
-    GetSubscriptions: "Subscription/GetSubscription",
+    GetSubscriptions: "Subscription/GetSubscriptions",
     UpsertSubscriptions: "Subscription/UpsertSubscription"
 };
 

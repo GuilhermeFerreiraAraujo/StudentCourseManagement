@@ -9,15 +9,17 @@ class SubscriptionsList extends React.Component {
   constructor() {
     super();
     this.state = {
-      Data: []
+      data: []
     };
   }
 
   componentDidMount() {
     Services.Get(Endpoints.SubscriptionsApis.GetSubscriptions).then(response => {
       this.setState({
-        data: response.data.Subscriptions
+        data: response.data.subscriptions
       })
+    }).catch(ex =>{
+      console.log(ex);
     });
   }
 
@@ -27,22 +29,40 @@ class SubscriptionsList extends React.Component {
         Header: "Subscriptions",
         columns: [
           {
-            Header: "Name",
-            accessor: "name"
+            Header: "Id",
+            accessor: "id"
+          },
+          {
+            Header: "Id Course",
+            accessor: "idCourse"
+          },
+          {
+            Header: "Course Name",
+            accessor: "courseName"
+          },
+          {
+            Header: "Course Code",
+            accessor: "courseCode"
+          },
+          {
+            Header: "Id Student",
+            accessor: "idStudent"
+          },
+          {
+            Header: "Student First Name",
+            accessor: "studentFirstName"
+          },
+          {
+            Header: "Student Surname",
+            accessor: "studentSurname"
           },
         ]
       }
     ];
 
-    const data = [
-      {
-        "name": "Guilherme Ferreira de Araújo"
-      }
-    ];
-
     return (
       <div>
-        <Table columns={columns} data={data} />
+        <Table columns={columns} data={this.state.data} />
       </div>
     )
   }

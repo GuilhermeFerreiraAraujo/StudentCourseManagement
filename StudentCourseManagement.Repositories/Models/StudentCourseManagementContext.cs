@@ -18,6 +18,7 @@ namespace StudentCourseManagement.Repositories.Models
 
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Subscription> Subscriptions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -72,6 +73,21 @@ namespace StudentCourseManagement.Repositories.Models
                 entity.Property(e => e.Surname)
                     .IsRequired()
                     .HasMaxLength(500);
+            });
+
+            modelBuilder.Entity<Subscription>(entity =>
+            {
+                entity.HasOne(d => d.Course)
+                    .WithMany(p => p.Subscriptions)
+                    .HasForeignKey(d => d.IdCourse)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Fk_Subscriptions_Courses");
+
+                entity.HasOne(d => d.Student)
+                    .WithMany(p => p.Subscriptions)
+                    .HasForeignKey(d => d.IdStudent)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Fk_Subscriptions_Students");
             });
 
             OnModelCreatingPartial(modelBuilder);

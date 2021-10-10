@@ -3,7 +3,7 @@ import CoursesList from './Views/Courses/CoursesList/CoursesList';
 import SubscriptionsList from './Views/Subscriptions/SubscriptionsList/SubscriptionsList';
 import StudentsDetail from './Views/Students/StudentsDetail/StudentsDetail';
 import CoursesDetail from './Views/Courses/CoursesDetail/CoursesDetail';
-import SubscriptionsDetail from './Views/Subscriptions/SubscriptionsList/SubscriptionsList';
+import SubscriptionsDetail from './Views/Subscriptions/SubscriptionsDetail/SubscriptionsDetail';
 import './App.scss';
 
 import {

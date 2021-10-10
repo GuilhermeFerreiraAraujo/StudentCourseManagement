@@ -5,7 +5,7 @@ import Select from '../../../Components/Atoms/Select/Select';
 import Datepicker from '../../../Components/Atoms/Datepicker/Datepicker';
 import * as Services from '../../../Services/Services';
 import * as Endpoints from '../../../Constants/Endpoints';
-import { Redirect, withRouter} from "react-router-dom";
+import { withRouter} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import './StudentsDetail.scss';
 
