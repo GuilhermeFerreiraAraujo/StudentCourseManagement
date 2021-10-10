@@ -5,6 +5,7 @@ import * as Services from '../../../Services/Services';
 import * as Endpoints from '../../../Constants/Endpoints';
 import { Redirect, withRouter } from "react-router-dom";
 import './CoursesDetail.scss';
+import Datepicker from '../../../Components/Atoms/Datepicker/Datepicker';
 
 class CoursesDetail extends React.Component {
   constructor() {
@@ -52,7 +53,7 @@ class CoursesDetail extends React.Component {
 
     Services.Post(Endpoints.CoursesApis.UpsertCourses, data).then(response => {
       alert("success");
-      <Redirect to="/courses-list" />
+      this.props.history.push("/courses-list")
     }).catch(ex => {
       alert("Error");
       console.log(ex);
@@ -98,12 +99,12 @@ class CoursesDetail extends React.Component {
               <Textbox label="Teacher" type="text" placeholder="Teacher Name" name="teacher" value={this.state.teacher} onChange={this.handleChange.bind(this)} />
             </div>
             <div className="col">
-              <Textbox label="Start Date" type="text" placeholder="Start Date" name="startDate" value={this.state.startDate} onChange={this.handleChange.bind(this)} />
+              <Datepicker label="Start Date" type="text" placeholder="Start Date" name="startDate" value={this.state.startDate} onChange={this.handleChange.bind(this)} />
             </div>
           </div>
           <div className="row">
             <div className="col">
-              <Textbox label="End Date" type="text" placeholder="Start Date" name="endDate" value={this.state.endDate} onChange={this.handleChange.bind(this)} />
+              <Datepicker label="End Date" type="text" placeholder="Start Date" name="endDate" value={this.state.endDate} onChange={this.handleChange.bind(this)} />
             </div>
             <div className="col">
             </div>

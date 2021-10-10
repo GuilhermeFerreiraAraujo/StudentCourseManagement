@@ -116,11 +116,11 @@ class CoursesList extends React.Component {
           },
           {
             Header: "Start Date",
-            accessor: "startDate"
+            accessor: row => new Date(row.startDate).toLocaleDateString("pt-PT"), 
           },
           {
             Header: "End Date",
-            accessor: "endDate"
+            accessor: row => new Date(row.endDate).toLocaleDateString("pt-PT")
           },
         ]
       }
