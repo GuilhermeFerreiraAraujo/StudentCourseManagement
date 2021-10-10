@@ -197,7 +197,7 @@ class ReportsList extends React.Component {
 
                     <div className="row">
                         <div className="col text-end">
-                            <Button label="Search Students" onClick={this.searchCoursesByStudentId} />
+                            <Button label="Search Courses" onClick={this.searchCoursesByStudentId} />
                         </div>
                     </div>
                 </div>
