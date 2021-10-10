@@ -1,11 +1,11 @@
 import React from 'react';
-import Table from '../../../Components/Components/Table/Table';
-import Textbox from '../../../Components/Atoms/Textbox/Textbox';
-import Button from '../../../Components/Atoms/Button/Button';
+import Table from '../../Components/Components/Table/Table';
+import Textbox from '../../Components/Atoms/Textbox/Textbox';
+import Button from '../../Components/Atoms/Button/Button';
 import { withRouter } from "react-router-dom";
-import * as Services from '../../../Services/Services';
-import * as Endpoints from '../../../Constants/Endpoints';
-import './StudentsList.scss';
+import * as Services from '../../Services/Services';
+import * as Endpoints from '../../Constants/Endpoints';
+import './ReportsList.scss';
 
 class ReportsList extends React.Component {
     constructor() {
@@ -19,19 +19,19 @@ class ReportsList extends React.Component {
             }
         };
 
-        this.search = this.search.bind(this);
-        this.handleTableDoubleClick = this.handleTableDoubleClick.bind(this);
+        this.searchStudentsByCourseId = this.searchStudentsByCourseId.bind(this);
+        this.searchCoursesByStudentId = this.searchCoursesByStudentId.bind(this);
     }
 
     componentDidMount() {
-        this.search();
+
     }
 
     searchCoursesByStudentId() {
         const params = {};
 
         if (this.state.filters.idStudent !== "") {
-            params.idStudent = this.state.filters.idStudent;
+            params.id = this.state.filters.idStudent;
         };
 
         Services.Get(Endpoints.StudentsApis.GetCoursesByStudentId, params).then(response => {
@@ -47,7 +47,7 @@ class ReportsList extends React.Component {
         const params = {};
 
         if (this.state.filters.idCourse !== "") {
-            params.idCourse = this.state.filters.idCourse
+            params.id = this.state.filters.idCourse
         };
 
         Services.Get(Endpoints.StudentsApis.GetStudentsByCourseId, params).then(response => {
@@ -140,6 +140,18 @@ class ReportsList extends React.Component {
             }
         ];
 
+        if (this.state.students.length > 0) {
+            var studentTable = (<div className="content container-fluid text-center">
+                <Table columns={studentsColumns} data={this.state.students} />
+            </div>)
+        }
+
+        if (this.state.courses.length > 0) {
+            var courseTable = (<div className="content container-fluid text-center">
+                <Table columns={coursesColumns} data={this.state.courses} />
+            </div>);
+        }
+
         return (
             <div className="Students-List">
                 <div className="content container-fluid text-start">
@@ -147,28 +159,30 @@ class ReportsList extends React.Component {
                         <div className="col">
                             <Textbox label="Id Course" type="text" placeholder="Id Course" name="idCourse" onChange={this.handleChange.bind(this)} value={this.state.filters.idCourse} />
                         </div>
-                        <div className="col">
-                            <Button label="Search" onClick={this.searchStudentsByCourseId} />
+                    </div>
+                    <div className="row">
+                        <div className="col text-end">
+                            <Button label="Search Students" className="margin-top" onClick={this.searchStudentsByCourseId} />
                         </div>
                     </div>
+                </div>
 
-                    <div className="content container-fluid text-center">
-                        <Table columns={studentsColumns} data={this.state.students} />
-                    </div>
+                {studentTable}
 
+                <div className="content container-fluid text-start">
                     <div className="row">
                         <div className="col">
                             <Textbox label="Id Student" type="text" placeholder="Id Student" name="idStudent" onChange={this.handleChange.bind(this)} value={this.state.filters.idStudent} />
                         </div>
-                        <div className="col">
-                            <Button label="Search" onClick={this.searchCoursesByStudentId} />
+                    </div>
+
+                    <div className="row">
+                        <div className="col text-end">
+                            <Button label="Search Students" onClick={this.searchCoursesByStudentId} />
                         </div>
                     </div>
                 </div>
-
-                <div className="content container-fluid text-center">
-                    <Table columns={coursesColumns} data={this.state.courses} />
-                </div>
+                {courseTable}
 
             </div >
         )

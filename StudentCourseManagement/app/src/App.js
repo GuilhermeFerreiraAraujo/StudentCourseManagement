@@ -4,6 +4,7 @@ import SubscriptionsList from './Views/Subscriptions/SubscriptionsList/Subscript
 import StudentsDetail from './Views/Students/StudentsDetail/StudentsDetail';
 import CoursesDetail from './Views/Courses/CoursesDetail/CoursesDetail';
 import SubscriptionsDetail from './Views/Subscriptions/SubscriptionsDetail/SubscriptionsDetail';
+import ReportsList from './Views/Reports/ReportsList';
 import './App.scss';
 
 import {
@@ -42,6 +43,9 @@ function App() {
                     <li><Link className="dropdown-item" to="/subscriptions-list">View Subscriptions</Link></li>
                   </ul>
                 </li>
+                <li className="nav-item dropdown">
+                  <Link className="nav-link" to="/reports-list" data-bs-toggle="dropdown">Reports</Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -71,6 +75,9 @@ function App() {
           </Route>
           <Route exact path="/subscription-detail">
             <SubscriptionsDetail />
+          </Route>
+          <Route exact path="/reports-list">
+            <ReportsList />
           </Route>
         </Switch>
       </Router>

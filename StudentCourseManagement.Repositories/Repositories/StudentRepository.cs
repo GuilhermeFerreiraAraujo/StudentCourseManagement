@@ -1,10 +1,12 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using StudentCourseManagement.Interfaces.Repositories;
 using StudentCourseManagement.Models.Models.Entities;
 using StudentCourseManagement.Models.Models.Requests;
 using StudentCourseManagement.Models.Models.Responses;
 using StudentCourseManagement.Repositories.Models;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace StudentCourseManagement.Repositories.Repositories
@@ -109,12 +111,11 @@ namespace StudentCourseManagement.Repositories.Repositories
 
         public GetStudentsByCourseIdResponse GetStudentsByCourseId(int id)
         {
-
-            return null;
-           
-
-
-
+            var response = new GetStudentsByCourseIdResponse();
+            var parameters = new[] { new SqlParameter("@CourseId", SqlDbType.Int ) { Direction = ParameterDirection.Input, Value = id }};
+            var students = _context.Students.FromSqlRaw("[dbo].[GetStudentsByCourseId] @CourseId ", parameters).ToList();
+            response.Students = students;
+            return response;
         }
     }
 }

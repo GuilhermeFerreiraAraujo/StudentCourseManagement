@@ -46,7 +46,7 @@ namespace StudentCourseManagement.Controllers
 
                 return Ok(response);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return BadRequest("There was a problem with your request!");
             }

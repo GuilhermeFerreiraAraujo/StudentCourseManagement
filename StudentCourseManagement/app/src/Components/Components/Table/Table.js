@@ -25,6 +25,7 @@ export default function Table({ columns, data, onDoubleClick }) {
     },
         usePagination)
     {
+
         let pagination = "";
         if (data.length > pageSize) {
             pagination = (<div className="row text-center">
