@@ -2,7 +2,7 @@ Running the project
 
 In order to run the project it is necessary to have node js, visual studio and sql server installed on the machine. Please follow the steps below.
 
-1 - Before running the project it is necessary to create the database. You can create the database running the script 1633620154.sql located in the folder scripts.
+1 - Before running the project it is necessary to create the database. You can create the database running the script 1633620154.sql located in the folder scripts or you can restore the DbBackup located in the root folder.
 
 2 - After creating the database it is important to update the connection string that is located in the file StudentCourseManagementContext.
 
