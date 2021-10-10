@@ -116,7 +116,7 @@ class StudentsDetail extends React.Component {
 
       Services.Post(Endpoints.StudentsApis.UpsertStudents, data).then(response => {
         alert("success");
-        this.props.history.push("/courses-list")
+        this.props.history.push("/")
       }).catch(ex => {
         alert("Error");
         console.log(ex);
